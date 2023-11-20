@@ -1,0 +1,22 @@
+h1,
+.h1 {
+	line-height: .8;
+}
+h2,
+.h2 {
+	line-height: 1;
+}
+h3,
+.h3 {
+	font-family: $font-body;
+	line-height: 1.25;
+	letter-spacing: .01em;
+}
+a {
+	color: $color-eggplant;
+}
+p, 
+.p {
+	font-size: rem-calc(20);
+	line-height: 1.6;
+}

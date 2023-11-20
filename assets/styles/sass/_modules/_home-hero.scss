@@ -1,0 +1,31 @@
+.home-hero {
+	.top {
+		.left {
+			padding-top: 34rem;
+			padding-bottom: 3.8rem;
+		}
+		.img-wrap {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			width: 50vw;
+			max-width: 720px;
+			overflow: hidden;
+			img {
+				display: block;
+			}
+		}
+	}
+	.bottom {
+		p {
+			font-size: rem-calc(24);
+			margin-bottom: 0;
+			line-height: 1.33333;
+			padding: 3.68rem 0 2.6rem;
+		}
+		.inner {
+			padding: 3rem;
+		}
+	}
+}

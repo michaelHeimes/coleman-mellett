@@ -1,35 +1,32 @@
 header.site-header {
-	transition: transform .5s ease;
-	
+	position: absolute;
+	width: 100%;
+	z-index: 9999;
 	#top-bar-menu {
-		
-		li.logo {
-			@include breakpoint(medium) {
-
-			}
-			@include breakpoint(tablet) {
-
-			}
-			a {
-				padding: 0;
-			}			
+		.site-branding {
+			padding-top: 2.5rem;
 		}
-			
 		#main-nav {
 			align-items: center;
+			justify-content: center;
+			position: absolute;
+			top: 0;
+			left: 100%;
+			width: 100vh;
+			max-width: 900px;
+			transform-origin: left top;
+			transform: rotate(90deg) translate(0, 25%);
 			>li {
 				margin: 0 .3rem 0rem;
 				
 				> a {
-					font-size: rem-calc(21);
+					font-family: $font-heading;
+					font-size: rem-calc(32);
+					line-height: 1;
 					text-transform: uppercase;
-					letter-spacing: 2.1px;
-					padding: 1.78rem 0.5rem 1.78rem;
-					position: relative;
 					
-					@include breakpoint(tablet) {
-						font-size: rem-calc(14);
-						letter-spacing: 1.4px;
+					@include breakpoint(medium) {
+						font-size: rem-calc(32);
 					}
 					
 					span {

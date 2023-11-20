@@ -170,6 +170,24 @@ function trailhead_scripts() {
 add_action( 'wp_enqueue_scripts', 'trailhead_scripts' );
 
 
+/**
+ * Enqueue Google Fonts.
+ */
+function enqueue_google_fonts() {
+	// Enqueue the Google Fonts stylesheet
+	wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Tenor+Sans&display=swapp', array(), null);
+
+	// Preload the Google Fonts stylesheet
+	add_action('wp_head', function () {
+		echo '<link rel="preload" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Tenor+Sans&display=swap" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">';
+	});
+}
+
+// Hook the function to the wp_enqueue_scripts action
+add_action('wp_enqueue_scripts', 'enqueue_google_fonts');
+
+
+
 // Disable Tabelpress Stylesheet
 add_filter( 'tablepress_use_default_css', '__return_false' );
 

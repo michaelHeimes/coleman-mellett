@@ -3,18 +3,43 @@
 Stylesheet: Global Stylesheet
 
 *************************************************/
+html {
+	position: relative;
+	max-width: 1440px;
+	margin: auto;
+	width: 100%;
+	height: 100%;
+	overflow-x: hidden;
+}
 /*********************
 BACKGROUND COLORS
 *********************/
 
+.bg-yellow {
+	background-color: $color-yellow;
+}
+.bg-green {
+	background-color: $color-green;
+	background-color: rgba(#8aff6e, .75);
+}
+.bg-aqua {
+	background-color: $color-aqua;
+	background-color: rgba(#8aff6e, .75);
+}
+
 /*********************
-RE-USED ELEMENTS
+RE-USED ELEMENTS & Utilities
 *********************/
 svg {
 	max-width: 100%;
 	height: auto;
 }
-
+.w-100 {
+	width: 100%;
+}
+.h-100 {
+	height: 100%;	
+}
 .has-bg {
 	position: relative;
 	.bg {
@@ -24,6 +49,30 @@ svg {
 		right: 0;
 		bottom: 0;
 		background-repeat: no-repeat;
+	}
+	&.overflow-left {
+		.bg {
+			width: 100vw;
+			left: auto;
+		}
+	}
+	&.overflow-right {
+		.bg {
+			width: 100vw;
+			right: -100vw;
+		}
+	}
+}
+
+.has-object-fit {
+	overflow: hidden;
+	img.object-fit {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
 	}
 }
 
