@@ -778,7 +778,7 @@ a img {
 
 hr {
   clear: both;
-  max-width: 69.875rem;
+  max-width: 72.125rem;
   height: 0;
   margin: 1.25rem auto;
   border-top: 0;
@@ -1055,7 +1055,7 @@ ul.no-bullet, ol.no-bullet {
 .grid-container {
   padding-right: 0.625rem;
   padding-left: 0.625rem;
-  max-width: 69.875rem;
+  max-width: 72.125rem;
   margin-left: auto;
   margin-right: auto;
 }
@@ -6739,7 +6739,6 @@ BACKGROUND COLORS
 
 .bg-aqua {
   background-color: #00E5BC;
-  background-color: rgba(138, 255, 110, 0.75);
 }
 
 /*********************
@@ -6793,6 +6792,45 @@ svg {
 
 .relative {
   position: relative;
+}
+
+.has-hwi {
+  position: relative;
+}
+.has-hwi .hwi-wrap {
+  position: absolute;
+  display: inline-block;
+}
+.has-hwi .hwi-wrap.position-bottom-right {
+  bottom: 0;
+  right: 0;
+  -webkit-transform: translateX(25%);
+          transform: translateX(25%);
+}
+.has-hwi .hwi-wrap.position-background {
+  width: 150%;
+  height: 100%;
+  -webkit-transform: translateX(-8%);
+          transform: translateX(-8%);
+  bottom: -100px;
+  left: -100px;
+}
+.has-hwi .hwi-wrap.position-background img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.rtp {
+  padding-top: 0 !important;
+}
+
+.rbp {
+  padding-bottom: 0 !important;
 }
 
 /*********************
@@ -7276,6 +7314,7 @@ h3,
   font-family: "Tenor Sans", sans-serif;
   line-height: 1.25;
   letter-spacing: 0.01em;
+  margin-bottom: 0.74em;
 }
 
 a {
@@ -7447,5 +7486,78 @@ footer#colophon .copyright {
 }
 .section-heading .inner h2 {
   margin-bottom: 0;
+}
+.section-heading .align-right .bg {
+  left: -12.6%;
+}
+
+.two-column-content {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.quote.module {
+  padding-top: 1.75rem;
+  padding-bottom: 1.75rem;
+}
+.quote.module h2 {
+  font-size: 5rem;
+  font-style: normal;
+  line-height: 0.9;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.242em;
+  color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #05194F;
+}
+
+.fullwidth-copy-img .bg {
+  right: -15%;
+}
+.fullwidth-copy-img .copy-wrap {
+  padding-top: 5.05rem;
+  padding-bottom: 4rem;
+}
+.fullwidth-copy-img .img-wrap {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 30%;
+}
+.fullwidth-copy-img .img-wrap img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.streaming-platforms {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  text-align: center;
+}
+.streaming-platforms .left {
+  margin-bottom: 1rem;
+}
+@media print, screen and (min-width: 40em) {
+  .streaming-platforms {
+    text-align: left;
+  }
+  .streaming-platforms .left {
+    margin-bottom: 0;
+    text-align: right;
+  }
+  .streaming-platforms .icon-links {
+    margin-left: -rem-calc(24);
+    margin-right: -rem-calc(24);
+  }
+  .streaming-platforms .icon-links > .cell {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
 }
 /*# sourceMappingURL=style.min.css.map */

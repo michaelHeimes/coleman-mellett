@@ -1,38 +1,69 @@
 <?php
 $two_col = get_sub_field('two-column_content') ?? null;
+$rtp_field = $two_col['remove_top_padding'] ?? null;
+$rbp_field = $two_col['remove_bottom_padding'] ?? null;
 $top_section_when_stacked = $two_col['background_color'] ?? null;
 $layout = $two_col['layout'] ?? null;
 $left_column = $two_col['left_column'] ?? null;
 $right_column = $two_col['right_column'] ?? null;
+$left_layout = '';
+$right_layout = '';
+
+$rtp = '';
+$rbp = '';
+
+if( $rtp_field == 'true' ) {
+	$rtp = 'rtp';
+}
+
+if( $rbp_field == 'true' ) {
+	$rbp = 'rbp';
+}
 
 if( $layout == '6-6' ) {
 	$left_layout = ' medium-6';
 	$right_layout = ' medium-6';
 }
 
-if( $layout == '5-1-7' ) {
+if( $layout == '5-1-6' ) {
 	$left_layout = ' medium-6 tablet-5';
 	$right_layout = ' medium-6 tablet-6 tablet-offset-1';
 }
 
-if( $layout == '7-1-5' ) {
+if( $layout == '6-1-5' ) {
 	$left_layout = ' medium-6 tablet-6';
 	$right_layout = ' medium-6 tablet-5 tablet-offset-1';
 }
 
+$align_middle = '';
+if (!empty($left_column) && $left_column['content_type'] == 'image' || !empty($right_column) && $right_column['content_type'] == 'image') {
+	$align_middle = ' align-middle';
+}
 ?>
-<section class="module two-column_content">
+<section class="module two-column-content <?= $rtp;?> <?=$rbp;?>">
 	<div class="grid-container">
-		<div class="grid-x grid-padding-x">
+		<div class="grid-x grid-padding-x<?= $align_middle;?>">
 			<?php if( !empty($left_column) ):
 				$content_type = $left_column['content_type'] ?? null;
-				$left_copy = $left_column['copy'] ?? null;
+				$copy = $left_column['copy'] ?? null;
 				$image = $left_column['image'] ?? null;
-				$chandrwriting_image_clone = $left_column['handrwriting_image_clone'] ?? null;	
+				$add_handwriting = $left_column['add_handwriting'] ?? null;
+				if($add_handwriting == 'true') {
+					$handwriting_image = $left_column['handwriting_image'] ?? null;
+					$img_position = $left_column['image_position'] ?? null;
+				}
 			?>
-			<div class="left small-12<?=$left_layout;?>">
+			<div class="left<?php if($add_handwriting == 'true') { echo ' has-hwi'; };?> cell small-12<?=$left_layout;?>">
+				<?php if( $add_handwriting == 'true' && !empty( $handwriting_image ) ) {
+					$imgID = $handwriting_image['ID'];
+					$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
+					$img = wp_get_attachment_image( $imgID, 'full', false, [ "class" => "", "alt"=>$img_alt] );
+					echo '<div class="hwi-wrap position-' . $img_position . '">';
+					echo $img;
+					echo '</div>';
+				}?>
 				<?php if( $content_type == 'copy' ) :?>
-					<div class="copy-wrap">
+					<div class="copy-wrap relative">
 						<?= $copy;?>
 					</div>
 				<?php endif;?>
@@ -57,7 +88,7 @@ if( $layout == '7-1-5' ) {
 					$imgID = $image['ID'];
 					$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
 					$img = wp_get_attachment_image( $imgID, $size, false, [ "class" => "", "alt"=>$img_alt] );
-					echo '<div class="img-wrap">';
+					echo '<div class="img-wrap relative">';
 					echo $img;
 					echo '</div>';
 				}?>
@@ -67,11 +98,23 @@ if( $layout == '7-1-5' ) {
 				$content_type = $right_column['content_type'] ?? null;
 				$copy = $right_column['copy'] ?? null;
 				$image = $right_column['image'] ?? null;
-				$chandrwriting_image_clone = $right_column['handrwriting_image_clone'] ?? null;	
+				$add_handwriting = $right_column['add_handwriting'] ?? null;
+				if($add_handwriting == 'true') {
+					$handwriting_image = $right_column['handwriting_image'] ?? null;
+					$img_position = $right_column['image_position'] ?? null;
+				}
 			?>
-			<div class="right small-12<?=$right_layout;?>">
+			<div class="right<?php if($add_handwriting == 'true') { echo ' has-hwi'; };?> cell small-12<?=$right_layout;?>">
+				<?php if( $add_handwriting == 'true' && !empty( $handwriting_image ) ) {
+					$imgID = $handwriting_image['ID'];
+					$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
+					$img = wp_get_attachment_image( $imgID, 'full', false, [ "class" => "", "alt"=>$img_alt] );
+					echo '<div class="hwi-wrap position-' . $img_position . '">';
+					echo $img;
+					echo '</div>';
+				}?>
 				<?php if( $content_type == 'copy' ) :?>
-					<div class="copy-wrap">
+					<div class="copy-wrap relative">
 						<?= $copy;?>
 					</div>
 				<?php endif;?>
@@ -79,7 +122,7 @@ if( $layout == '7-1-5' ) {
 					$imgID = $image['ID'];
 					$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
 					$img = wp_get_attachment_image( $imgID, 'full', false, [ "class" => "", "alt"=>$img_alt] );
-					echo '<div class="img-wrap">';
+					echo '<div class="img-wrap relative">';
 					echo $img;
 					echo '</div>';
 				}?>

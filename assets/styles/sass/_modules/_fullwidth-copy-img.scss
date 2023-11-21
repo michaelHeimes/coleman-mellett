@@ -1,0 +1,24 @@
+.fullwidth-copy-img {
+	.bg {
+		right: -15%;
+	}
+	.copy-wrap {
+		padding-top: rem-calc(80.8);
+		padding-bottom: rem-calc(64);
+	}
+	.img-wrap {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		width: 30%;
+		img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+}

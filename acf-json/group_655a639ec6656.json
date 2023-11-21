@@ -112,6 +112,102 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_655c06a7ded9b": {
+                    "key": "layout_655c06a7ded9b",
+                    "name": "quote",
+                    "label": "Quote",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_655c06abded9e",
+                            "label": "Quote",
+                            "name": "quote_clone",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_655c064a6a10a"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_655c12db77f41": {
+                    "key": "layout_655c12db77f41",
+                    "name": "fullwidth_copy_image",
+                    "label": "Fullwidth Copy & Image",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_655c12e177f44",
+                            "label": "Fullwidth Copy & Image",
+                            "name": "fullwidth_copy_image_clone",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_655c1069824e0"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_655c22fd6f45e": {
+                    "key": "layout_655c22fd6f45e",
+                    "name": "streaming_platforms",
+                    "label": "Streaming Platforms",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_655c23026f461",
+                            "label": "Streaming Platforms",
+                            "name": "streaming_platforms_clone",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_655c228cd7008"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "min": "",
@@ -139,5 +235,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1700444136
+    "modified": 1700537103
 }

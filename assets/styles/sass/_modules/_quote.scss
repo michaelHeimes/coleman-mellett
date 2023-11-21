@@ -1,0 +1,14 @@
+.quote.module {
+	padding-top: rem-calc(28);
+	padding-bottom: rem-calc(28);
+	h2 {
+		font-size: rem-calc(80);
+		font-style: normal;
+		line-height: .9;
+		letter-spacing: .04em;
+		margin-bottom: 0.242em;
+		color: transparent;
+		-webkit-text-stroke-width: 1px;
+		  -webkit-text-stroke-color: $color-eggplant;
+	}
+}
