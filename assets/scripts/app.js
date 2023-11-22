@@ -82,6 +82,9 @@
 // Swiper
 //@prepros-prepend vendor/swiper-bundle.js
 
+// Isotope
+//* @prepros-prepend vendor/isotope.pkgd.js
+
 // DOM Ready
 (function($) {
 	'use strict';

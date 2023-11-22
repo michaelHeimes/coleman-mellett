@@ -157,6 +157,18 @@ button,
 	letter-spacing: 0.02em;
 }
 
+@include breakpoint(medium) {
+	.platform-icon-links {
+		margin-left: -rem-calc(24);	
+		margin-right: -rem-calc(24);	
+		> .cell {
+			padding-left: rem-calc(24);	
+			padding-right: rem-calc(24);
+			margin-bottom: rem-calc(24);	
+		}
+	}
+}
+
 /*********************
 POSTS & CONTENT STYLES
 *********************/

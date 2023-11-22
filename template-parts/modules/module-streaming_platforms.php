@@ -15,7 +15,7 @@ $platforms = $streaming_platforms['platforms'] ?? null;
 			<?php endif;?>
 			<?php if( !empty($platforms) ):?>
 				<div class="right cell small-12 medium-6 tablet-5 tablet-offset-1">
-					<div class="icon-links grid-x grid-padding-x">
+					<div class="platform-icon-links grid-x grid-padding-x">
 						<?php foreach($platforms as $platform):
 							$icon = $platform['icon'];	
 							$url = $platform['url'];	

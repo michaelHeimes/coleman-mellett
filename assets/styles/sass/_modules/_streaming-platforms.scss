@@ -10,7 +10,7 @@
 	.left {
 		margin-bottom: 1rem;
 	}
-	.icon-links {
+	.platform-icon-links {
 		justify-content: center;
 	}
 	@include breakpoint(medium) {
@@ -19,14 +19,9 @@
 			margin-bottom: 0;
 			text-align: right;
 		}
-		.icon-links {
-			margin-left: -rem-calc(24);	
-			margin-right: -rem-calc(24);	
+		.platform-icon-links {
+			padding-top: rem-calc(12);
 			justify-content: flex-start;
-			> .cell {
-				padding-left: rem-calc(24);	
-				padding-right: rem-calc(24);	
-			}
 		}
 	}
 }

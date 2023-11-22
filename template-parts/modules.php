@@ -24,6 +24,10 @@ if( have_rows('content_modules') ):
 			get_template_part($root, 'media_slider');
 		elseif( get_row_layout() == 'store_cta' ):
 			get_template_part($root, 'store_cta');
+		elseif( get_row_layout() == 'where_to_listen_cta' ):
+			get_template_part($root, 'where_to_listen_cta');
+		elseif( get_row_layout() == 'snapshots_gallery' ):
+		get_template_part($root, 'snapshots_gallery');
 		endif;
 
 	endwhile;
