@@ -2,7 +2,7 @@
 $two_col = get_sub_field('two-column_content') ?? null;
 $rtp_field = $two_col['remove_top_padding'] ?? null;
 $rbp_field = $two_col['remove_bottom_padding'] ?? null;
-$top_section_when_stacked = $two_col['background_color'] ?? null;
+$top_section_when_stacked = $two_col['top_section_when_stacked'] ?? null;
 $layout = $two_col['layout'] ?? null;
 $left_column = $two_col['left_column'] ?? null;
 $right_column = $two_col['right_column'] ?? null;
@@ -40,20 +40,21 @@ if (!empty($left_column) && $left_column['content_type'] == 'image' || !empty($r
 	$align_middle = ' align-middle';
 }
 ?>
-<section class="module two-column-content <?= $rtp;?> <?=$rbp;?>">
+<section class="module two-column-content top-stacked-<?= $top_section_when_stacked;?> <?= $rtp;?> <?=$rbp;?>">
 	<div class="grid-container">
-		<div class="grid-x grid-padding-x<?= $align_middle;?>">
+		<div class="inner grid-x grid-padding-x<?= $align_middle;?>">
 			<?php if( !empty($left_column) ):
 				$content_type = $left_column['content_type'] ?? null;
 				$copy = $left_column['copy'] ?? null;
 				$image = $left_column['image'] ?? null;
+				$pull_image_left = $left_column['pull_image_to_flush_left'] ?? null;
 				$add_handwriting = $left_column['add_handwriting'] ?? null;
 				if($add_handwriting == 'true') {
 					$handwriting_image = $left_column['handwriting_image'] ?? null;
 					$img_position = $left_column['image_position'] ?? null;
 				}
 			?>
-			<div class="left<?php if($add_handwriting == 'true') { echo ' has-hwi'; };?> cell small-12<?=$left_layout;?>">
+			<div class="left<?php if($add_handwriting == 'true') { echo ' has-hwi'; };?> cell small-12<?=$left_layout;?><?php if( $pull_image_left == 'true' ){ echo ' img-pulled-left';}?>">
 				<?php if( $add_handwriting == 'true' && !empty( $handwriting_image ) ) {
 					$imgID = $handwriting_image['ID'];
 					$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
@@ -98,13 +99,14 @@ if (!empty($left_column) && $left_column['content_type'] == 'image' || !empty($r
 				$content_type = $right_column['content_type'] ?? null;
 				$copy = $right_column['copy'] ?? null;
 				$image = $right_column['image'] ?? null;
+				$pull_image_right = $right_column['pull_image_to_flush_right'] ?? null;
 				$add_handwriting = $right_column['add_handwriting'] ?? null;
 				if($add_handwriting == 'true') {
 					$handwriting_image = $right_column['handwriting_image'] ?? null;
 					$img_position = $right_column['image_position'] ?? null;
 				}
 			?>
-			<div class="right<?php if($add_handwriting == 'true') { echo ' has-hwi'; };?> cell small-12<?=$right_layout;?>">
+			<div class="right<?php if($add_handwriting == 'true') { echo ' has-hwi'; };?> cell small-12<?=$right_layout;?><?php if( $pull_image_right == 'true' ){ echo ' img-pulled-right';}?>">
 				<?php if( $add_handwriting == 'true' && !empty( $handwriting_image ) ) {
 					$imgID = $handwriting_image['ID'];
 					$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );

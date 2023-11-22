@@ -1,15 +1,30 @@
 <?php
 $quote = get_sub_field('quote') ?? null;
+$rtp_field = $quote['remove_top_padding'] ?? null;
+$rbp_field = $quote['remove_bottom_padding'] ?? null;
 $quote_text = $quote['quote'] ?? null;
 $author = $quote['author'] ?? null;
 $add_handwriting = $quote['add_handwriting'] ?? null;
+
+$rtp = '';
+$rbp = '';
+
+if( $rtp_field == 'true' ) {
+	$rtp = 'rtp';
+}
+
+if( $rbp_field == 'true' ) {
+	$rbp = 'rbp';
+}
+
 if($add_handwriting == 'true') {
 	$handwriting_image = $quote['handwriting_image'] ?? null;
 	$img_position = $quote['image_position'] ?? null;
 }
+
 ?>
 <?php if( !empty($quote_text) ):?>
-<section class="module quote">
+<section class="module quote  <?= $rtp;?> <?=$rbp;?>">
 	<div class="grid-container">
 		<div class="grid-x grid-padding-x">
 			<div class="left cell small-12">
@@ -23,7 +38,7 @@ if($add_handwriting == 'true') {
 						echo '</div>';
 					}?>
 					<?php if( !empty($quote_text) ):?>
-						<h2 class="relative"><?= $quote_text;?></h2>
+						<h2 class="relative">“<?= $quote_text;?></h2>
 					<?php endif;?>
 					<?php if( !empty($author) ):?>
 						<h5 class="relative"><?= $author;?></h5>

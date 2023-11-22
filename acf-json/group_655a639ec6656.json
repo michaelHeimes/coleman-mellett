@@ -49,16 +49,48 @@
                     "min": "",
                     "max": ""
                 },
+                "layout_655d5c2c50875": {
+                    "key": "layout_655d5c2c50875",
+                    "name": "page_banner",
+                    "label": "Page Banner",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_655d5c3150878",
+                            "label": "Page Banner",
+                            "name": "page_banner_banner",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_655a63ced15c6"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
                 "layout_655ab07545c03": {
                     "key": "layout_655ab07545c03",
-                    "name": "section_heading",
-                    "label": "Section Heading",
+                    "name": "section_header",
+                    "label": "Section Header",
                     "display": "block",
                     "sub_fields": [
                         {
                             "key": "field_655ab07f45c06",
-                            "label": "Section Heading",
-                            "name": "section_heading_clone",
+                            "label": "Section Header",
+                            "name": "section_header_clone",
                             "aria-label": "",
                             "type": "clone",
                             "instructions": "",
@@ -71,6 +103,38 @@
                             },
                             "clone": [
                                 "field_655a59025edb5"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_655cabdcd6353": {
+                    "key": "layout_655cabdcd6353",
+                    "name": "wysiwyg_editor",
+                    "label": "WYSIWYG Editor",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_655cabefd6356",
+                            "label": "WYSIWYG Editor",
+                            "name": "wysiwyg_editor_clone",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_655caa186820d"
                             ],
                             "display": "seamless",
                             "layout": "block",
@@ -208,6 +272,79 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_655cb90c484e5": {
+                    "key": "layout_655cb90c484e5",
+                    "name": "single_video",
+                    "label": "Single Video",
+                    "display": "block",
+                    "sub_fields": [],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_655cbb2d80c31": {
+                    "key": "layout_655cbb2d80c31",
+                    "name": "media_slider",
+                    "label": "Media Slider",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_655cbb3280c33",
+                            "label": "Media Slider",
+                            "name": "media_slider_clone",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_655cb9b984fb2"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_655d320240468": {
+                    "key": "layout_655d320240468",
+                    "name": "store_cta",
+                    "label": "Store CTA",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_655d320a4046b",
+                            "label": "Store CTA",
+                            "name": "store_cta_clone",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_655d2f2dce4f5"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "min": "",
@@ -235,5 +372,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1700537103
+    "modified": 1700617463
 }

@@ -25,6 +25,13 @@ BACKGROUND COLORS
 .bg-aqua {
 	background-color: $color-aqua;
 }
+.bg-eggplant {
+	background-color: $color-eggplant;
+	color: $white;
+	a {
+		color: $white;
+	}
+}
 
 /*********************
 RE-USED ELEMENTS & Utilities
@@ -84,15 +91,44 @@ svg {
 	.hwi-wrap {
 		position: absolute;
 		display: inline-block;
-		&.position-bottom-right {
+		&.position-top-left {
+			bottom: 0;
+			left: 0;
+			transform: translateX(25%);
+		}
+		&.position-bottom-left {
+			top: 0;
+			left: 0;
+			transform: translateX(25%);
+		}
+		&.position-top-right {
 			bottom: 0;
 			right: 0;
 			transform: translateX(25%);
 		}
-		&.position-background {
+		&.position-bottom-right {
+			top: 0;
+			right: 0;
+			transform: translateX(25%);
+		}
+		&.position-background-left {
 			width: 150%;
 			height: 100%;
 			transform: translateX(-8%);
+			bottom: -100px;
+			left: -100px;
+			img {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+		&.position-background-right {
+			width: 150%;
+			height: 100%;
 			bottom: -100px;
 			left: -100px;
 			img {
@@ -113,6 +149,12 @@ svg {
 
 .rbp {
 	padding-bottom: 0 !important;
+}
+
+button,
+.button {
+	cursor: pointer;
+	letter-spacing: 0.02em;
 }
 
 /*********************

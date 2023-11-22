@@ -11,40 +11,16 @@
 
 ?>
 
-				<footer id="colophon" class="site-footer">
+				<footer id="colophon" class="site-footer bg-eggplant">
 					<div class="site-info">
 						<div class="grid-container">
 							<div class="grid-x grid-padding-x">
-								<div class="cell small-12">
-									<?php 
-									$image = get_field('footer_logo', 'option');
-									if( !empty( $image ) ): ?>
-									<div class="top">
-										<img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
-									</div>
-									<?php endif; ?>
-									<?php 
-									$link = get_field('parent_company_link', 'option');
-									if( $link ): 
-										$link_url = $link['url'];
-										$link_title = $link['title'];
-										$link_target = $link['target'] ? $link['target'] : '_self';
-										?>
-									<div class="bottom">
-										<a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
-									</div>
-									<?php endif; ?>	
-									<a href="<?php echo esc_url( __( 'https://wordpress.org/', '_s' ) ); ?>">
-										<?php
-										/* translators: %s: CMS name, i.e. WordPress. */
-										printf( esc_html__( 'Proudly powered by %s', '_s' ), 'WordPress' );
-										?>
-									</a>
-									<span class="sep"> | </span>
-										<?php
-										/* translators: 1: Theme name, 2: Theme author. */
-										printf( esc_html__( 'Theme: %1$s by %2$s.', '_s' ), '_s', '<a href="https://automattic.com/">Automattic</a>' );
-										?>
+								<div class="left cell small-12 tablet-6">
+									<p class="site-title h2 text-center tablet-text-left"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+								</div>
+								<div class="right cell small-12 tablet-6 grid-x flex-dir-column">
+									<div><?php trailhead_social_links();?></div>
+									<p>&copy; <?= date('Y');?>. All right reserved.</p> 
 								</div>
 							</div>
 						</div>

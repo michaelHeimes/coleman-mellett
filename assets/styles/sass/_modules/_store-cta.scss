@@ -1,0 +1,32 @@
+.store-cta {
+	padding-top: rem-calc(55);
+	padding-bottom: rem-calc(55);
+	@include breakpoint(medium down) {
+		.inner {
+			padding-top: 5rem;
+			padding-bottom: 5rem;
+			.img-wrap {
+				display: block;
+				max-width: 500px;
+				margin: auto;
+			}
+		}
+	}
+	@include breakpoint(medium) {
+		padding-top: rem-calc(80);
+		padding-bottom: rem-calc(80);
+		.left {
+			.inner {
+				padding: rem-calc(70) 26% rem-calc(70) 0;
+				.btn-wrap {
+					padding-top: rem-calc(32);
+				}
+			}
+		}
+		.right {
+			.inner {
+				padding: rem-calc(70) 0 rem-calc(70) 26%;
+			}
+		}
+	}
+}

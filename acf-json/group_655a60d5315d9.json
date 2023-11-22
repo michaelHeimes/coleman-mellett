@@ -82,7 +82,8 @@
                 "top-right": "Top Right",
                 "bottom-left": "Bottom Left",
                 "bottom-right": "Bottom Right",
-                "background": "Background"
+                "background-left": "Background Left",
+                "background-right": "Background Right"
             },
             "default_value": "",
             "return_format": "value",
@@ -112,5 +113,5 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1700442692
+    "modified": 1700612507
 }

@@ -42,7 +42,7 @@
 // @include foundation-accordion;
 //@include foundation-media-object;
 //@include foundation-orbit;
-// @include foundation-responsive-embed;
+@include foundation-responsive-embed;
 //@include foundation-tabs;
 //@include foundation-thumbnail;
 // Menu-based containers
@@ -82,10 +82,14 @@
 // @import "_parts/banner";
 
 @import "_modules/home-hero";
-@import "_modules/section-heading";
+@import "_modules/section-header";
 @import "_modules/two-column-content";
 @import "_modules/quote";
 @import "_modules/fullwidth-copy-img";
 @import "_modules/streaming-platforms";
+@import "_modules/wysiwyg-editor";
+@import "_modules/media-slider";
+@import "_modules/store-cta";
+@import "_modules/page-banner";
 
 // @import "_pages/home";

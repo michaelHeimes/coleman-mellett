@@ -142,6 +142,59 @@
             
         });
     }
+    
+    _app.media_image_slider = function() {
+            
+        const mediaSliders = document.querySelectorAll('.media-slider');
+                
+        if(mediaSliders) {
+        
+            mediaSliders.forEach(function (mediaSlider, index) {
+            
+                const prevBtn = mediaSlider.querySelector('.swiper-button-prev');
+                const nextBtn = mediaSlider.querySelector('.swiper-button-next');
+                        
+                const imageSlider = mediaSlider.querySelector('.image-slider');   
+                
+                console.log(imageSlider);
+                
+                if(imageSlider) {
+    
+                    const swiper = new Swiper(imageSlider, {
+                        slidesPerView: 1,
+                        spaceBetween: 15,
+                        breakpoints: {
+                            640: {
+                                slidesPerView: 2,
+                            },
+                        },
+                        navigation: {
+                            nextEl: nextBtn,
+                            prevEl: prevBtn,
+                        },
+                    });  
+                    
+                }
+                
+                const videoSlider = mediaSlider.querySelector('.video-slider');   
+                
+                if(videoSlider) {
+                
+                    const swiper = new Swiper(videoSlider, {
+                        slidesPerView: 1,
+                        spaceBetween: 15,
+                        navigation: {
+                            nextEl: nextBtn,
+                            prevEl: prevBtn,
+                        },
+                    });  
+                }
+            
+            });
+        
+        }
+            
+    }
             
     _app.init = function() {
         
@@ -153,6 +206,7 @@
         
         // Custom Functions
         //_app.mobile_takover_nav();
+        _app.media_image_slider();
     }
     
     

@@ -18,6 +18,9 @@ a {
 }
 p, 
 .p {
-	font-size: rem-calc(20);
+	font-size: rem-calc(17);
 	line-height: 1.6;
+	@include breakpoint(medium) {
+		font-size: rem-calc(20);
+	}
 }

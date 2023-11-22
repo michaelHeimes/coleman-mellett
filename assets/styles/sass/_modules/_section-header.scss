@@ -1,0 +1,16 @@
+.section-header {
+	.inner {
+		padding: 3.29rem 0 3.038rem;
+		@include breakpoint(medium) {
+			padding: 4.7rem 0 4.34rem;
+		}
+		h2 {
+			margin-bottom: 0;
+		}
+	}
+	.align-right {
+		.bg {
+			left: -12.6%;
+		}
+	}
+}

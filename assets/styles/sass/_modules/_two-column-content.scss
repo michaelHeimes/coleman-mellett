@@ -1,4 +1,45 @@
 .two-column-content {
-	padding-top: rem-calc(80);
-	padding-bottom: rem-calc(80);
+	padding-top: rem-calc(55);
+	padding-bottom: rem-calc(55);
+	@include breakpoint(medium) {
+		padding-top: rem-calc(80);
+		padding-bottom: rem-calc(80);
+	}
+	&.top-stacked-left {
+		.left {
+			@include breakpoint(small down) {
+				margin-bottom: rem-calc(30);
+			}
+		}
+	}
+	&.top-stacked-right {
+		@include breakpoint(small down) {
+			.grid-x {
+				flex-direction: column-reverse;	
+			}
+		}
+		.right {
+			@include breakpoint(small down) {
+				margin-bottom: rem-calc(30);
+			}
+		}
+	}
+	.left.img-pulled-left {
+		.img-wrap {
+			@include flush-left();
+		}
+	}
+	.right.img-pulled-right {
+		.img-wrap {
+			@include flush-right();
+		}
+	}
+	.inner.align-middle {
+		.copy-wrap {
+			@include breakpoint(medium) {
+				padding-top: 3rem;
+				padding-bottom: 3rem;	
+			}
+		}
+	}
 }

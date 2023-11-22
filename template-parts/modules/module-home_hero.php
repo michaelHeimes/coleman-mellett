@@ -36,7 +36,7 @@ $tagline = $home_hero['tagline'] ?? null;
 					</div>
 				<?php endif;?>
 				<?php if( !empty($tagline) ):?>
-					<div class="cell small-12 medium-5 grid-x align-center">
+					<div class="cell small-10 small-offset-2 medium-5 grid-x align-center">
 						<div class="inner relative has-bg overflow-right grid-x align-right align-middle w-100">
 							<div class="bg bg-green"></div>
 							<h2 class="relative text-center"><?= $tagline;?></h2>

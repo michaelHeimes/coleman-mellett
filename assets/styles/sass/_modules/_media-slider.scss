@@ -1,0 +1,35 @@
+.media-slider {
+	padding-bottom: rem-calc(45);
+	@include breakpoint(medium) {
+		padding-bottom: rem-calc(70);
+	}
+	.section-header {
+		margin-bottom: 2.4375rem;
+	}
+	.handwriting-img {
+		position: absolute;
+		z-index: -1;
+		transform: translate(-40%, -5%);
+	}
+	.slider-nav {
+		@include breakpoint(medium down) {
+			margin-bottom: rem-calc(20);
+		}
+		button {
+			width: rem-calc(55);
+			height: rem-calc(55);
+			position: static;
+			top: 0;
+			margin-top: 0;
+			&:after {
+				font-size: 0;
+			}
+		}	
+	}
+	.bottom {
+		padding-top: 1.4rem;
+	}
+	.btn-wrap {
+		padding-top: 0.5rem;
+	}
+}
