@@ -92,22 +92,22 @@ svg {
 		position: absolute;
 		display: inline-block;
 		&.position-top-left {
-			bottom: 0;
-			left: 0;
-			transform: translateX(25%);
-		}
-		&.position-bottom-left {
 			top: 0;
 			left: 0;
-			transform: translateX(25%);
+			transform: translateX(-25%);
+		}
+		&.position-bottom-left {
+			bottom: -15%;
+			left: 0;
+			transform: translateX(-25%);
 		}
 		&.position-top-right {
-			bottom: 0;
+			top: 0;
 			right: 0;
 			transform: translateX(25%);
 		}
 		&.position-bottom-right {
-			top: 0;
+			bottom: 0;
 			right: 0;
 			transform: translateX(25%);
 		}

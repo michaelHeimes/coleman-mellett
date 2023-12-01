@@ -35,6 +35,11 @@ if( $layout == '6-1-5' ) {
 	$right_layout = ' medium-6 tablet-5 tablet-offset-1';
 }
 
+if( $layout == '7-5' ) {
+	$left_layout = ' medium-6 tablet-7';
+	$right_layout = ' medium-6 tablet-5';
+}
+
 $align_middle = '';
 if (!empty($left_column) && $left_column['content_type'] == 'image' || !empty($right_column) && $right_column['content_type'] == 'image') {
 	$align_middle = ' align-middle';

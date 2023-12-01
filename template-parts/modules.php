@@ -27,7 +27,11 @@ if( have_rows('content_modules') ):
 		elseif( get_row_layout() == 'where_to_listen_cta' ):
 			get_template_part($root, 'where_to_listen_cta');
 		elseif( get_row_layout() == 'snapshots_gallery' ):
-		get_template_part($root, 'snapshots_gallery');
+			get_template_part($root, 'snapshots_gallery');
+		elseif( get_row_layout() == 'award_logos' ):
+			get_template_part($root, 'award_logos');
+			elseif( get_row_layout() == 'fullwidth_video' ):
+			get_template_part($root, 'fullwidth_video');
 		endif;
 
 	endwhile;
