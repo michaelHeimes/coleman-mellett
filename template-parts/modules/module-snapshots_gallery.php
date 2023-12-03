@@ -35,44 +35,35 @@ if( $rbp_field == 'true' ) {
 		<div class="grid-container gallery-images">
 			<div class="grid-x grid-padding-x">
 				<div class="cell small-12">
-					<div class="images-wrap grid-x grid-padding-x">
-						<?php $i = 1; foreach($images as $image):?>
+					<div class="gallery-mosaic images-wrap grid-x grid-padding-x">
+						<?php 
+							$i = 0; 
+							$totalIterations = 7;
+							$class = '';
+						
+							foreach($images as $image):
+								if (in_array($i % $totalIterations, [0, 6])) {
+									$class = ' small-8 height-362 ';
+								}	
+								if (in_array($i % $totalIterations, [ 1, 5])) {
+									$class = ' small-4 height-362 ';
+								}	
+								if (in_array($i % $totalIterations, [2, 3, 4,])) {
+									$class = ' small-4 height-268 ';
+								}	
+								$imgID = $image['ID'];	
+							?>
 							
 							<?php if( !empty($image) ):?>
-							
-								<?php if( $i == 1 || $i == 7 ):?>
-									<div class="cell small-8 img-wrap seq-<?=$i;?>">
-										<?php
-											$imgID = $image['ID'];
-											$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
-											$img = wp_get_attachment_image( $imgID, 'snapshots-images-1_7-2x', false, [ "class" => "", "alt"=>$img_alt] );
-											echo $img;
-										?>
+									<div class="cell<?=$class;?> img-<?=$imgID;?>">
+										<div class="img-wrap">
+											<?php
+												$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
+												$img = wp_get_attachment_image( $imgID, 'snapshot-image-thumb-2x', false, [ "class" => "", "alt"=>$img_alt] );
+												echo $img;
+											?>
+										</div>
 									</div>
-								<?php endif;?>
-								
-								<?php if( $i == 2 || $i == 6 ):?>
-									<div class="cell small-4 img-wrap seq-<?=$i;?>">
-										<?php
-											$imgID = $image['ID'];
-											$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
-											$img = wp_get_attachment_image( $imgID, 'snapshots-images-2_6-2x', false, [ "class" => "", "alt"=>$img_alt] );
-											echo $img;
-										?>
-									</div>
-								<?php endif;?>
-								
-								<?php if( $i == 3 || $i == 4 || $i == 5 ):?>
-									<div class="cell small-4 img-wrap seq-<?=$i;?>">
-										<?php
-											$imgID = $image['ID'];
-											$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
-											$img = wp_get_attachment_image( $imgID, 'snapshots-images-3_4_5-2x', false, [ "class" => "", "alt"=>$img_alt] );
-											echo $img;
-										?>
-									</div>
-								<?php endif;?>
-							
 							<?php endif;?>
 							
 						<?php $i++; endforeach;?>

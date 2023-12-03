@@ -473,6 +473,70 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_656a9d25c6937": {
+                    "key": "layout_656a9d25c6937",
+                    "name": "photo_gallery",
+                    "label": "Photo Gallery",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_656a9d2bc693a",
+                            "label": "Photo Gallery",
+                            "name": "photo_gallery_clone",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_656a9ab5fcbb0"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_656be7639ab43": {
+                    "key": "layout_656be7639ab43",
+                    "name": "video_gallery",
+                    "label": "Video Gallery",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_656be76b9ab46",
+                            "label": "Video Gallery",
+                            "name": "video_gallery_clone",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_656be5c33853a"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "min": "",
@@ -500,5 +564,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1701474123
+    "modified": 1701570431
 }

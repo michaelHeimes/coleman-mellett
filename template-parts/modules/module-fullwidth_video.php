@@ -1,22 +1,8 @@
 <?php
 $fullwidth_video = get_sub_field('fullwidth_video') ?? null;
-$rtp_field = $logos['remove_top_padding'] ?? null;
-$rbp_field = $logos['remove_bottom_padding'] ?? null;
-
-$rtp = '';
-$rbp = '';
-
-if( $rtp_field == 'true' ) {
-	$rtp = 'rtp';
-}
-
-if( $rbp_field == 'true' ) {
-	$rbp = 'rbp';
-}
-
 ?>
 <?php if( !empty($fullwidth_video) ):?>
-<section class="module fullwidth-video <?= $rtp;?> <?=$rbp;?>">
+<section class="module fullwidth-video">
 	<?php
 	
 	// Load value.

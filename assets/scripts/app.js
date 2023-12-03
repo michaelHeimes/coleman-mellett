@@ -18,7 +18,7 @@
  //@*prepros-prepend vendor/foundation/js/plugins/foundation.util.imageLoader.min.js
  //@prepros-prepend vendor/foundation/js/plugins/foundation.util.keyboard.min.js
  //@prepros-prepend vendor/foundation/js/plugins/foundation.util.mediaQuery.min.js
- //@*prepros-prepend vendor/foundation/js/plugins/foundation.util.motion.min.js
+ //@prepros-prepend vendor/foundation/js/plugins/foundation.util.motion.min.js
  //@prepros-prepend vendor/foundation/js/plugins/foundation.util.nest.min.js
  //@*prepros-prepend vendor/foundation/js/plugins/foundation.util.timer.min.js
  //@prepros-prepend vendor/foundation/js/plugins/foundation.util.touch.min.js
@@ -56,7 +56,7 @@
 //@*prepros-prepend vendor/foundation/js/plugins/foundation.orbit.js
 
 // Modals
-//@*prepros-prepend vendor/foundation/js/plugins/foundation.reveal.js
+//@prepros-prepend vendor/foundation/js/plugins/foundation.reveal.js
 
 // Form UI element
 //@*prepros-prepend vendor/foundation/js/plugins/foundation.slider.js
@@ -155,12 +155,9 @@
             mediaSliders.forEach(function (mediaSlider, index) {
             
                 const prevBtn = mediaSlider.querySelector('.swiper-button-prev');
-                const nextBtn = mediaSlider.querySelector('.swiper-button-next');
-                        
+                const nextBtn = mediaSlider.querySelector('.swiper-button-next');    
                 const imageSlider = mediaSlider.querySelector('.image-slider');   
-                
-                console.log(imageSlider);
-                
+                                
                 if(imageSlider) {
     
                     const swiper = new Swiper(imageSlider, {
@@ -198,6 +195,102 @@
         }
             
     }
+    
+    _app.gallery_load_more = function() {
+        
+        function fadeIn(element, duration) {
+            let opacity = 0;
+            element.style.display = 'block';
+        
+            const interval = 10;
+            const step = 1 / (duration / interval);
+        
+            function updateOpacity() {
+                if (opacity < 1) {
+                    opacity += step;
+                    element.style.opacity = opacity;
+                    setTimeout(updateOpacity, interval);
+                }
+            }
+        
+            updateOpacity();
+        }
+        
+        const loadMoreGalleryContainers = document.querySelectorAll('.load-more-gallery');
+        
+        loadMoreGalleryContainers.forEach(function (lmg) {
+            const loadMoreButton = lmg.querySelector('.load-more-button');
+            
+            const batchSize = 17;
+            const increment = 17;
+            
+            loadMoreButton.addEventListener('click', function () {
+                showNextBatch();
+            });
+                        
+            const showNextBatch = function() {
+                const hiddenImages = lmg.querySelectorAll('.cell.hidden');
+            
+                if (hiddenImages.length > 0) {
+                    for (let i = 0; i < increment && i < hiddenImages.length; i++) {
+                        hiddenImages[i].classList.remove('hidden');
+                        fadeIn(hiddenImages[i], 300);
+                    }
+            
+                    hiddenImages[0].scrollIntoView({ behavior: 'smooth' });
+                }
+            
+                // Check if there are still hidden images
+                if (lmg.querySelectorAll('.cell.hidden').length === 0) {
+                    loadMoreButton.style.display = 'none';
+                }
+            }    
+            
+            const modalTriggers = lmg.querySelectorAll('.images-wrap a');
+            
+            modalTriggers.forEach(function (trigger) {
+                trigger.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    
+                    const modalTrigger = trigger.getAttribute('data-modal');
+                    const targetModal = document.getElementById(modalTrigger);
+                    const targetSlider = targetModal.querySelector('.swiper-initialized');
+                    const targetSlide = trigger.id;
+                    const goToSlide = targetSlider.querySelector('.swiper-slide[data-image="' + targetSlide + '"]')
+
+                    const slideIndex = goToSlide.getAttribute('data-swiper-slide-index');
+                    
+                    const swiper = targetSlider.swiper;
+                    
+                    if (swiper) {
+                        swiper.slideTo(slideIndex);
+                    }
+
+                    $(targetModal).foundation('open');
+
+                });
+            });
+            
+            const gallerSliders = document.querySelectorAll('.gallery-slider');
+            
+            gallerSliders.forEach(function (slider) {
+               const prevBtn = slider.querySelector('.swiper-button-prev');
+               const nextBtn = slider.querySelector('.swiper-button-next');  
+               
+               const swiper = new Swiper(slider, {
+                   slidesPerView: 1,
+                   spaceBetween: 50,
+                   navigation: {
+                       nextEl: nextBtn,
+                       prevEl: prevBtn,
+                   },
+               }); 
+               
+            });
+            
+        });
+            
+    }
             
     _app.init = function() {
         
@@ -210,6 +303,7 @@
         // Custom Functions
         //_app.mobile_takover_nav();
         _app.media_image_slider();
+        _app.gallery_load_more();
     }
     
     

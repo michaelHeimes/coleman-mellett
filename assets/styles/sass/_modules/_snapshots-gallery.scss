@@ -8,72 +8,33 @@
 	.section-header {
 		margin-bottom: rem-calc(40);
 	}
-	.gallery-images {
-		.img-wrap {
-			position: relative;
-			margin-bottom: 1.875rem;
-			img {
-				position: absolute;
-				top: 0;
-				left: 0.9375rem;
-				right: 0.9375rem;
-				height: 100%;
-				width: calc(100% - 1.875rem);
-				object-fit: cover;
+	
+	
+	.grid-x.gallery-mosaic {
+		> .cell {
+			&.height-362  {
+				height: calc(26.9288vw - 0.53125rem);
 			}
-			&.seq-1,
-			&.seq-2,
-			&.seq-6,
-			&.seq-7  {
-				height: calc(35vw - 1.875rem);
+			.height-268  {
+				height: calc(26vw - .53125rem);
 			}
-			&.seq-3,
-			&.seq-4,
-			&.seq-5  {
-				height: calc(26vw - 1.875rem);
-			}
-		}
-		@include breakpoint(small down) {
-			.grid-x.images-wrap {
-				margin-left: -.5rem;
-				margin-right: -.5rem;
-				>.cell.img-wrap {
-					padding-left: 5rem;
-					padding-right: 5rem;
-					margin-bottom: 1rem;
-					img {
-						left: 0.5rem;
-						right: 0.5rem;
-						width: calc(100% - 1rem);
-					}
+			@include breakpoint(medium) {
+				&.height-362  {
+					height: calc(29.699vw - 0.53125rem);
+				}
+				&.height-268  {
+					height: calc(22.7978vw - 0.53125rem);
 				}
 			}
-		}
-		@media screen and (min-width: 1140px) {
-			.img-wrap {
-				position: relative;
-				margin-bottom: 1.875rem;
-				img {
-					position: absolute;
-					top: 0;
-					left: 0.9375rem;
-					right: 0.9375rem;
-					width: calc(100% - 1.875rem);
-					height: 100%;
-					object-fit: cover;
+			@media screen and (min-width: 1140px) {
+				&.height-362  {
+					height: 362px;
 				}
-				&.seq-1,
-				&.seq-2,
-				&.seq-6,
-				&.seq-7  {
-					height: 361px;
-				}
-				&.seq-3,
-				&.seq-4,
-				&.seq-5  {
-					height: 536px;
+				&.height-268  {
+					height: 268px;
 				}
 			}
-		}
+		}	
 	}
+
 }

@@ -36,6 +36,33 @@ BACKGROUND COLORS
 /*********************
 RE-USED ELEMENTS & Utilities
 *********************/
+html.is-reveal-open body {
+	width: 100vw;
+}
+.reveal {
+	max-width: 100vw;
+	@media screen and (min-width:1440px) {
+		max-width: 1440px !important;
+	}
+	.responsive-embed {
+		height: 100%;
+		width: 100%;
+	}
+}
+.screen-reader-text {
+	clip: rect(1px,1px,1px,1px);
+	word-wrap: normal!important;
+	border: 0;
+	-webkit-clip-path: inset(50%);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}
+
 svg {
 	max-width: 100%;
 	height: auto;
@@ -84,6 +111,74 @@ svg {
 
 .relative {
 	position: relative;
+}
+
+.load-more-gallery {
+	.btn-wrap {
+		margin-bottom: rem-calc(80);
+	}
+	button.load-more-button {
+		min-width: 186px;
+	}
+}
+
+.gallery-modal {
+	.close-btn-wrap {
+		padding-bottom: 1rem;
+	}
+}
+
+.gallery-slider {
+	overflow: hidden;
+	.swiper-slide {
+		.img-wrap {
+		padding: 40px;
+		}
+		img {
+			box-shadow: 0px 0px 40px 0px #000;
+		}
+	}
+	button.swiper-nav {
+		width: 69px;
+		height: 69px;
+		&:after {
+			font-size: 0;
+		}
+	}
+}
+
+.grid-x.gallery-mosaic {
+	margin-left: -.53125rem;
+	margin-right: -.53125rem;
+	margin-bottom: rem-calc(72);
+	> .cell {
+		padding: .5rem;	
+		.img-wrap {
+			display: block;
+			width: 100%;
+			position: relative;
+			img {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+	}
+	@include breakpoint(medium) {
+		margin-left: -.53125rem;
+		margin-right: -.53125rem;
+		> .cell {
+			padding: .53125rem;
+		}
+	}
+	@media screen and (min-width: 1140px) {
+		
+	}
 }
 
 .has-hwi {

@@ -1,0 +1,11 @@
+.video-gallery {
+	.images-wrap {
+		> .cell > a {
+			display: block;
+			height: calc(27.939vw - 0.53125rem);
+			@media screen and (min-width: 1140px) {
+				height: 310px;
+			}
+		}
+	}
+}

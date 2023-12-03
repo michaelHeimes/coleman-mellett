@@ -148,29 +148,7 @@ if($add_handwriting) {
 									echo '<div class="swiper-slide video-wrap responsive-embed widescreen">';
 									echo $iframe;
 									echo '</div>';
-									
-			// 						$size2x = 'image-gallery-slider-2x';
-			// 						$size1x = 'image-gallery-slider-1x';
-			// 						$fallback_size = 'full';
-			// 						
-			// 						$image2x = wp_get_attachment_image_src($image['ID'], $size2x);
-			// 						$image1x = wp_get_attachment_image_src($image['ID'], $size1x);
-			// 						$image_fallback = wp_get_attachment_image_src($image['ID'], $fallback_size);
-			// 						
-			// 						if ($image2x) {
-			// 							$size = $size2x;
-			// 						} elseif ($image1x) {
-			// 							$size = $size1x;
-			// 						} else {
-			// 							$size = $fallback_size;
-			// 						}
-			// 
-			// 						$imgID = $image['ID'];
-			// 						$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
-			// 						$img = wp_get_attachment_image( $imgID, $size, false, [ "class" => "", "alt"=>$img_alt] );
-			// 						echo '<div class="swiper-slide img-wrap">';
-			// 						echo $img;
-			// 						echo '</div>';
+
 								}
 			
 							}?>
