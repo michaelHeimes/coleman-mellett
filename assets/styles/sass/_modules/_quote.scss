@@ -1,12 +1,12 @@
 .quote.module {
-	padding-top: rem-calc(55);
-	padding-bottom: rem-calc(55);
+	padding-top: rem-calc(32);
+	padding-bottom: rem-calc(32);
 	@include breakpoint(medium) {
 		padding-top: rem-calc(80);
 		padding-bottom: rem-calc(80);
 	}
 	h2 {
-		font-size: rem-calc(60);
+		font-size: rem-calc(40);
 		font-style: normal;
 		line-height: .9;
 		letter-spacing: .04em;
@@ -16,6 +16,9 @@
 		  -webkit-text-stroke-color: $color-eggplant;
 		  
 		@include breakpoint(medium) {
+			font-size: rem-calc(56);
+		}
+		@include breakpoint(tablet) {
 			font-size: rem-calc(80);
 		}
 	}

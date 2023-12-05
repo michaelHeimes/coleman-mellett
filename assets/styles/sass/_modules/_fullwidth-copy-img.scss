@@ -5,8 +5,12 @@
 		}
 	}
 	.copy-wrap {
-		padding-top: rem-calc(80.8);
-		padding-bottom: rem-calc(64);
+		padding-top: rem-calc(32);
+		padding-bottom: rem-calc(14);
+		@include breakpoint(medium) {
+			padding-top: rem-calc(80.8);
+			padding-bottom: rem-calc(64);
+		}
 		@include breakpoint(tablet) {
 			padding-right: 7%;
 		}
@@ -34,7 +38,10 @@
 	}
 	&.width-8 {
 		.img-wrap {
-			width: 30%;
+			width: 100%;
+			@include breakpoint(tablet) {
+				width: 30%;
+			}
 		}	
 	}
 	&.orientation-left {

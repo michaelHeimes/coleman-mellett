@@ -1,27 +1,59 @@
 <?php
 $row = get_row_index();
 $video_gallery = get_sub_field('video_gallery') ?? null;
-$rtp_field = $video_gallery['remove_top_padding'] ?? null;
-$rbp_field = $video_gallery['remove_bottom_padding'] ?? null;
 $videos = $video_gallery['videos'] ?? null;
-
-$rtp = '';
-$rbp = '';
-
-if( $rtp_field == 'true' ) {
-	$rtp = 'rtp';
-}
-
-if( $rbp_field == 'true' ) {
-	$rbp = 'rbp';
-}
-
+$featured_video_url = $video_gallery['featured_video_url'];
 ?>
 <?php if( !empty($video_gallery) ):?>
-<section class="module video-gallery load-more-gallery <?= $rtp;?> <?=$rbp;?>">
+<section class="module video-gallery load-more-gallery">
 	<div class="grid-container">
 		<div class="grid-x grid-padding-x">
 			<div class="cell small-12">
+				<?php if( !empty( $featured_video_url ) ) :
+					
+					
+					$youtube_url = $featured_video_url;	
+					$videoId = '';
+					$pattern = '/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/';
+					preg_match($pattern, $youtube_url, $matches);
+					
+					if (isset($matches[1])) {
+						$videoId = $matches[1];
+					}						
+					
+					$thumbnailUrl = 'https://i3.ytimg.com/vi_webp/' . $videoId . '/maxresdefault.webp';
+
+					// Load value.
+					$iframe = $featured_video_url;
+										
+					// Use preg_match to find iframe src.
+					preg_match('/src="(.+?)"/', $iframe, $matches);
+					$src = $matches[1];
+					
+					// Add extra parameters to src and replace HTML.
+					$params = array(
+						'controls'  	 => 1,
+						'hd'        	 => 1,
+						'autohide'  	 => 1,
+						'enablejsapi'    => 1,
+						'rel' 			 => 0,
+					);
+					$new_src = add_query_arg($params, $src);
+					$iframe = str_replace($src, $new_src, $iframe);
+					
+					// Add extra attributes to iframe HTML.
+					$attributes = 'frameborder="0"';
+					$iframe = str_replace('></iframe>', ' data-src="' . $new_src . '"' . $attributes . '></iframe>', $iframe);?>
+					
+					<div class="featured-video video-wrap has-mask responsive-embed widescreen">
+						<?= $iframe;?>
+						<button class="video-mask">
+							<img src="<?=$thumbnailUrl;?>">
+							<svg width="119" height="138" viewBox="0 0 119 138" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M119 69L0.499994 137.416L0.5 0.583987L119 69Z" fill="white"/></svg>
+						</button> 
+					</div>
+				
+				<?php endif;?>
 				<div class="gallery-mosaic images-wrap grid-x grid-padding-x">
 					<?php 
 						$i = 0; 
@@ -38,14 +70,17 @@ if( $rbp_field == 'true' ) {
 								$videoId = $matches[1];
 							}						
 							
-							$thumbnail = 'https://i3.ytimg.com/vi/' . $videoId . '/maxresdefault.jpg';
-						
+							$thumbnail = 'https://i3.ytimg.com/vi_webp/' . $videoId . '/maxresdefault.webp';
+							
 						?>
 						
 						<?php if( !empty($youtube_url) ):?>
 							<div class="cell small-4 <? if( $i >= $max_show ) { echo 'hidden';}?> img-<?=$i;?>"<?php if( $i >= $max_show ):?> style="opacity: 0; display: none;"<?php endif;?>>
-								<a id="image-<?=$i;?>" class="img-wrap" href="#" data-modal="gallery-modal-<?=$row;?>">
-									<img src="<?= esc_url($thumbnail);?>">
+								<a class="video-wrap has-mask relative" id="image-<?=$i;?>" href="#" data-modal="gallery-modal-<?=$row;?>">
+									<div class="video-mask img-wrap">
+										<img src="<?= esc_url($thumbnail);?>">
+										<svg width="60px" height="70px" viewBox="0 0 60 70" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Polygon-3" transform="translate(0.000000, 0.359000)" fill="#FFFFFF" fill-rule="nonzero"><polygon id="Path" points="60 34.641 0 69.282 0 0"></polygon></g></g></svg>
+									</div>
 								</a>
 							</div>
 						<?php endif;?>
@@ -67,40 +102,45 @@ if( $rbp_field == 'true' ) {
 			</button>
 		</div>
 		<?php if($videos ) :?>
+			<script src="https://www.youtube.com/iframe_api"></script>
 			<div class="gallery-slider">
-				<div class="swiper-wrapper">
-					<?php $si = 0;  foreach($videos as $video):?>
-						<?php if( !empty( $video ) ) {
+				<div class="swiper-container">
+					<div class="swiper-wrapper">
+						<?php $si = 0;  foreach($videos as $video):?>
+							<?php if( !empty( $video ) ) {
+								
+								// Load value.
+								$iframe =$video['youtube_url'];
+								
+								// Use preg_match to find iframe src.
+								preg_match('/src="(.+?)"/', $iframe, $matches);
+								$src = $matches[1];
+								
+								// Add extra parameters to src and replace HTML.
+								$params = array(
+									'controls'  	 => 1,
+									'hd'        	 => 1,
+									'autohide'  	 => 1,
+									'enablejsapi'    => 1,
+									'rel' 			 => 0,
+								);
+								$new_src = add_query_arg($params, $src);
+								$iframe = str_replace($src, '', $iframe);
+								
+								// Add extra attributes to iframe HTML.
+								$attributes = 'frameborder="0"';
+								$iframe = str_replace('></iframe>', ' data-src="' . $new_src . '"' . $attributes . ' class="lazy-youtube"></iframe>', $iframe);
+								
+								// Display customized HTML.
+								echo '<div class="swiper-slide grid-x align-middle align-center" data-image="image-' . esc_attr($si) . '" data-swiper-slide-index="' .  esc_attr( $si ) . '">';
+								echo '<div class="responsive-embed widescreen">';
+								echo $iframe;
+								echo '</div>';
+								echo '</div>';
 							
-							// Load value.
-							$iframe =$video['youtube_url'];
-							
-							// Use preg_match to find iframe src.
-							preg_match('/src="(.+?)"/', $iframe, $matches);
-							$src = $matches[1];
-							
-							// Add extra parameters to src and replace HTML.
-							$params = array(
-								'controls'  => 1,
-								'hd'        => 1,
-								'autohide'  => 1
-							);
-							$new_src = add_query_arg($params, $src);
-							$iframe = str_replace($src, $new_src, $iframe);
-							
-							// Add extra attributes to iframe HTML.
-							$attributes = 'frameborder="0"';
-							$iframe = str_replace('></iframe>', ' ' . $attributes . '></iframe>', $iframe);
-							
-							// Display customized HTML.
-							echo '<div class="swiper-slide grid-x align-middle align-center" data-image="image-' . esc_attr($si) . '" data-swiper-slide-index="' .  esc_attr( $si ) . '">';
-							echo '<div class="responsive-embed widescreen">';
-							echo $iframe;
-							echo '</div>';
-							echo '</div>';
-						
-						}?>
-					<?php $si++; endforeach;?>
+							}?>
+						<?php $si++; endforeach;?>
+					</div>
 				</div>
 				<button class="swiper-button-prev swiper-nav">
 					<svg xmlns="http://www.w3.org/2000/svg" width="69" height="69" viewBox="0 0 69 69" fill="none">

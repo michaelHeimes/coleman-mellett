@@ -1,14 +1,20 @@
 .where-to-listen-cta {
-	padding-bottom: rem-calc(55);
+	padding-bottom: rem-calc(32);
 	.section-header {
 		margin-bottom: rem-calc(48);
 	}
 	.album-ctas {
-		padding-bottom: rem-calc(49);
+		padding-bottom: rem-calc(0);
+		@include breakpoint(medium) {
+			padding-bottom: rem-calc(49);
+		}
 		.cell {
 			display: flex;
 			flex-direction: column;
-			margin-bottom: rem-calc(70);
+			margin-bottom: rem-calc(50);
+			@include breakpoint(medium) {
+				margin-bottom: rem-calc(70);
+			}
 			.top {
 				flex: 1;
 				h2 {

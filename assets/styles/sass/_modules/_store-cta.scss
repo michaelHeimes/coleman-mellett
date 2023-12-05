@@ -1,10 +1,10 @@
 .store-cta {
-	padding-top: rem-calc(55);
-	padding-bottom: rem-calc(55);
+	padding-top: rem-calc(32);
+	padding-bottom: rem-calc(32);
 	@include breakpoint(medium down) {
 		.inner {
-			padding-top: 5rem;
-			padding-bottom: 5rem;
+			padding-top: rem-calc(32);
+			padding-bottom: rem-calc(32);
 			.img-wrap {
 				display: block;
 				max-width: 500px;

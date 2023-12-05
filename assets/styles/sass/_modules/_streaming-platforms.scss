@@ -1,17 +1,18 @@
 .streaming-platforms {
-	padding-top: rem-calc(55);
-	padding-bottom: rem-calc(55);
+	padding-bottom: rem-calc(32);
+	
 	@include breakpoint(medium) {
+		text-align: center;
 		padding-top: rem-calc(80);
 		padding-bottom: rem-calc(80);
 	}
-
-	text-align: center;
 	.left {
 		margin-bottom: 1rem;
 	}
 	.platform-icon-links {
-		justify-content: center;
+		@include breakpoint(medium) {
+			justify-content: center;
+		}
 	}
 	@include breakpoint(medium) {
 		text-align: left;

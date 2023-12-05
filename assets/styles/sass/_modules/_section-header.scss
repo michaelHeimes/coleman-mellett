@@ -1,7 +1,10 @@
 .section-header {
 	.inner {
-		padding: 3.29rem 0 3.038rem;
+		padding: 1.083rem 0 .98rem;
 		@include breakpoint(medium) {
+			padding: 3.29rem 0 3.038rem;
+		}
+		@include breakpoint(tablet) {
 			padding: 4.7rem 0 4.34rem;
 		}
 		h2 {

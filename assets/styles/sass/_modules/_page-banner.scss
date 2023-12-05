@@ -1,4 +1,8 @@
 .page-banner {
-	padding-top: rem-calc(248);
-	padding-bottom: rem-calc(61);
+	padding-top: 18.5066vw;
+	padding-bottom: 5vw;
+	@media (min-width: 1204px) {
+		padding-top: rem-calc(223);
+		padding-bottom: rem-calc(61);
+	}
 }

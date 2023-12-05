@@ -4,7 +4,10 @@ header.site-header {
 	z-index: 999;
 	#top-bar-menu {
 		.site-branding {
-			padding-top: 2.5rem;
+			padding-top: 1rem;
+			@include breakpoint(medium) {
+				padding-top: 2.5rem;
+			}
 		}
 		#main-nav {
 			align-items: center;
@@ -12,20 +15,53 @@ header.site-header {
 			position: absolute;
 			top: 0;
 			left: 100%;
-			width: 100vh;
-			max-width: 900px;
+			width: 72vw;
+			min-width: 315px;
 			transform-origin: left top;
 			transform: rotate(90deg) translate(0, 25%);
+			padding-right: 2rem;
+			
+			@include breakpoint(medium) {
+				transform: rotate(90deg) translate(-2vw, 25%);
+			}
+			
+			@include breakpoint(tablet) {
+				transform: rotate(90deg) translate(-12vw, 25%);
+				width: 100vh;
+				max-width: 900px;
+			}
+			
+			@include breakpoint(large) {
+				transform: rotate(90deg) translate(-2vw, 25%);
+				padding-right: 9rem;
+			}
+			
+			@media (min-width: 1250px) {
+				transform: rotate(90deg) translate(0, 25%);
+				padding: 0;
+			}
+			
 			>li {
 				margin: 0 .3rem 0rem;
-				
+				@media (min-width: 1250px) {
+					margin: 0 1.45rem 0rem;	
+				}
 				> a {
 					font-family: $font-header;
-					font-size: rem-calc(32);
+					font-size: rem-calc(16);
 					line-height: 1;
 					text-transform: uppercase;
 					
+					@include breakpoint(medium down) {
+						margin: 0;
+						padding: 2vw;
+					}
+					
 					@include breakpoint(medium) {
+						font-size: rem-calc(22);
+					}
+					
+					@include breakpoint(tablet) {
 						font-size: rem-calc(32);
 					}
 					

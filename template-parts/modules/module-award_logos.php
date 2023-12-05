@@ -18,7 +18,7 @@ if( $rbp_field == 'true' ) {
 <?php if( !empty($logos) ):?>
 <section class="module award-logos <?= $rtp;?> <?=$rbp;?>">
 	<div class="grid-container">
-		<div class="grid-x grid-padding-x">
+		<div class="grid-x grid-padding-x align-middle">
 			<?php 
 			$images = $logos['award_logos'];
 			if( $images ): ?>
@@ -27,7 +27,7 @@ if( $rbp_field == 'true' ) {
 						$imgID = $image['ID'];
 						$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
 						$img = wp_get_attachment_image( $imgID, 'full', false, [ "class" => "", "alt"=>$img_alt] );
-						echo '<div class="cell shrink">';
+						echo '<div class="cell small-4 tablet-shrink text-center">';
 						echo $img;
 						echo '</div>';
 					}?>

@@ -31,8 +31,7 @@
 				
 				<div class="off-canvas-wrapper">
 				
-				<!-- Load off-canvas container. Feel free to remove if not using. -->			
-				<?php get_template_part( 'template-parts/content', 'offcanvas' ); ?>
+				<!-- Load off-canvas container. Feel free to remove if not using. -->	
 				
 					<div class="off-canvas-content" data-off-canvas-content>
 						<div id="page" class="site">

@@ -3,7 +3,8 @@
 Stylesheet: Global Stylesheet
 
 *************************************************/
-html {
+body,
+.off-canvas-wrapper {
 	position: relative;
 	max-width: 1440px;
 	margin: auto;
@@ -62,7 +63,23 @@ html.is-reveal-open body {
 	position: absolute;
 	width: 1px;
 }
-
+.video-wrap.has-mask {
+	.video-mask {
+		cursor: pointer;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: $color-eggplant;
+		svg {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+	}
+}
 svg {
 	max-width: 100%;
 	height: auto;
@@ -150,7 +167,10 @@ svg {
 .grid-x.gallery-mosaic {
 	margin-left: -.53125rem;
 	margin-right: -.53125rem;
-	margin-bottom: rem-calc(72);
+	margin-bottom: rem-calc(20);
+	@include breakpoint(medium) {
+		margin-bottom: rem-calc(72);
+	}
 	> .cell {
 		padding: .5rem;	
 		.img-wrap {
@@ -166,6 +186,17 @@ svg {
 				width: 100%;
 				height: 100%;
 				object-fit: cover;
+			}
+			&:not(.video-mask) {
+				img {
+					filter: grayscale(1);
+					transition: filter .25s ease;
+				}
+				&:hover {
+					img {
+						filter: grayscale(0);
+					}
+				}
 			}
 		}
 	}

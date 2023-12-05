@@ -15,10 +15,10 @@
 					<div class="site-info">
 						<div class="grid-container">
 							<div class="grid-x grid-padding-x">
-								<div class="left cell small-12 tablet-6">
-									<p class="site-title h2 text-center tablet-text-left"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+								<div class="left cell small-6">
+									<p class="site-title h2"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
 								</div>
-								<div class="right cell small-12 tablet-6 grid-x flex-dir-column">
+								<div class="right cell small-6 grid-x flex-dir-column">
 									<div><?php trailhead_social_links();?></div>
 									<p>&copy; <?= date('Y');?>. All right reserved.</p> 
 								</div>

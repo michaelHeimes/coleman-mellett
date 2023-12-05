@@ -1,6 +1,6 @@
 .snapshots-gallery {
-	padding-top: rem-calc(55);
-	padding-bottom: rem-calc(55);
+	padding-top: rem-calc(32);
+	padding-bottom: rem-calc(32);
 	@include breakpoint(medium) {
 		padding-top: rem-calc(80);
 		padding-bottom: rem-calc(80);
@@ -12,25 +12,25 @@
 	
 	.grid-x.gallery-mosaic {
 		> .cell {
-			&.height-362  {
+			&.height-362 .img-wrap {
 				height: calc(26.9288vw - 0.53125rem);
 			}
-			.height-268  {
+			&.height-268 .img-wrap {
 				height: calc(26vw - .53125rem);
 			}
 			@include breakpoint(medium) {
-				&.height-362  {
+				&.height-362 .img-wrap {
 					height: calc(29.699vw - 0.53125rem);
 				}
-				&.height-268  {
+				&.height-268 .img-wrap {
 					height: calc(22.7978vw - 0.53125rem);
 				}
 			}
 			@media screen and (min-width: 1140px) {
-				&.height-362  {
+				&.height-362 .img-wrap {
 					height: 362px;
 				}
-				&.height-268  {
+				&.height-268 .img-wrap {
 					height: 268px;
 				}
 			}

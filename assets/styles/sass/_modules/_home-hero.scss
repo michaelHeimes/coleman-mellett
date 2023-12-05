@@ -1,8 +1,17 @@
 .home-hero {
 	.top {
 		.left {
-			padding-top: 34rem;
-			padding-bottom: 3.8rem;
+			padding-top: 45.134vw;
+			padding-bottom: 5vw;
+			@include breakpoint(tablet) {
+				h1 {
+					font-size: rem-calc(120);
+				}
+			}
+			@media (min-width: 1204px) {
+				padding-top: 34rem;	
+				padding-bottom: 3.8rem;
+			}
 		}
 		.img-wrap {
 			position: absolute;
@@ -14,18 +23,37 @@
 			overflow: hidden;
 			img {
 				display: block;
+				object-position: right;
 			}
 		}
 	}
 	.bottom {
 		p {
-			font-size: rem-calc(24);
+			font-size: rem-calc(16);
 			margin-bottom: 0;
 			line-height: 1.33333;
-			padding: 3.68rem 0 2.6rem;
+			padding: 1.68rem 0 1.6rem;
+			@include breakpoint(medium) {
+				padding: 2.68rem 0 2.6rem;
+			}
+			@include breakpoint(tablet) {
+				padding: 3.68rem 0 3.6rem;
+				font-size: rem-calc(24);
+			}
 		}
 		.inner {
-			padding: 3rem;
+			padding: 1rem 1rem 1rem 3rem;
+			justify-content: flex-start;
+			@include breakpoint(medium) {
+				padding: 2rem;
+			}
+			@include breakpoint(tablet) {
+				padding: 3rem;
+				justify-content: center;
+			}
+			h2 {
+				margin: 0;
+			}
 		}
 	}
 }

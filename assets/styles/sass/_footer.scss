@@ -1,6 +1,10 @@
 footer#colophon {
-	padding-top: rem-calc(57);
-	padding-bottom: rem-calc(62);
+	padding-top: rem-calc(9);
+	padding-bottom: rem-calc(10);
+	@include breakpoint(medium) {
+		padding-top: rem-calc(57);
+		padding-bottom: rem-calc(62);
+	}
 	.site-title {
 		margin-top: 1.5rem;
 		margin-bottom: 3rem;
@@ -12,10 +16,21 @@ footer#colophon {
 		}
 	}
 	.menu {
-		margin: 0 -1.5rem rem-calc(19);
+		margin: 0 -1.5rem rem-calc(3);
+		@include breakpoint(medium) {
+			margin: 0 -1.5rem rem-calc(19);
+		}
 		a {
 			padding: 0;
 			margin: 1.5rem;
+			img {
+				max-width: 24px;
+			}
+			@include breakpoint(medium) {
+				img {
+					max-width: 100%;
+				}
+			}
 		}
 	}
 	.copyright {

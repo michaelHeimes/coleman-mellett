@@ -1,17 +1,14 @@
 .photo-gallery {
 	.grid-x.gallery-mosaic {
 		> .cell {
-			height: auto;
-			@include breakpoint(medium) {
-				&.height-320 > a  {
-					height: calc(28.816vw - 0.53125rem);
-				}
-				&.height-362 > a  {
-					height: calc(32.5vw - .53125rem);
-				}
-				&.height-239 > a  {
-					height: calc(21.711vw - .53125rem);
-				}
+			&.height-320 > a  {
+				height: calc(28.816vw - 0.53125rem);
+			}
+			&.height-362 > a  {
+				height: calc(32.5vw - .53125rem);
+			}
+			&.height-239 > a  {
+				height: calc(21.711vw - .53125rem);
 			}
 			@media screen and (min-width: 1140px) {
 				&.height-320 > a  {

@@ -1,24 +1,11 @@
 <?php
 $row = get_row_index();
 $photo_gallery = get_sub_field('photo_gallery') ?? null;
-$rtp_field = $photo_gallery['remove_top_padding'] ?? null;
-$rbp_field = $photo_gallery['remove_bottom_padding'] ?? null;
 $images = $photo_gallery['images'] ?? null;
-
-$rtp = '';
-$rbp = '';
-
-if( $rtp_field == 'true' ) {
-	$rtp = 'rtp';
-}
-
-if( $rbp_field == 'true' ) {
-	$rbp = 'rbp';
-}
 
 ?>
 <?php if( !empty($photo_gallery) ):?>
-<section class="module photo-gallery load-more-gallery <?= $rtp;?> <?=$rbp;?>">
+<section class="module photo-gallery load-more-gallery">
 	<div class="grid-container">
 		<div class="grid-x grid-padding-x">
 			<div class="cell small-12">
@@ -72,46 +59,48 @@ if( $rbp_field == 'true' ) {
 		</div>
 		<?php if($images ) :?>
 			<div class="gallery-slider">
-				<div class="swiper-wrapper">
-					<?php $si = 0;  foreach($images as $image):?>
-						<?php if( !empty( $image ) ) {
-							$imgID = $image['ID'];
-							$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
-							$img = wp_get_attachment_image( $imgID, 'gallery-slider-image-2x', false, [ "class" => "", "alt"=>$img_alt] );
-							echo '<div class="swiper-slide grid-x align-middle align-center" data-image="image-' . esc_attr($si) . '" data-swiper-slide-index="' .  esc_attr( $si ) . '">';
-							echo '<div class="img-wrap">';
-							echo $img;
-							echo '</div>';
-							echo '</div>';
-						}?>
-					<?php $si++; endforeach;?>
+				<div class="swiper-container">
+					<div class="swiper-wrapper">
+						<?php $si = 0;  foreach($images as $image):?>
+							<?php if( !empty( $image ) ) {
+								$imgID = $image['ID'];
+								$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
+								$img = wp_get_attachment_image( $imgID, 'gallery-slider-image-2x', false, [ "class" => "", "alt"=>$img_alt] );
+								echo '<div class="swiper-slide grid-x align-middle align-center" data-image="image-' . esc_attr($si) . '" data-swiper-slide-index="' .  esc_attr( $si ) . '">';
+								echo '<div class="img-wrap">';
+								echo $img;
+								echo '</div>';
+								echo '</div>';
+							}?>
+						<?php $si++; endforeach;?>
+					</div>
+					<button class="swiper-button-prev swiper-nav">
+						<svg xmlns="http://www.w3.org/2000/svg" width="69" height="69" viewBox="0 0 69 69" fill="none">
+					  	<g clip-path="url(#clip0_181_1370)">
+							<rect x="8.625" y="8.62512" width="51.75" height="51.75" rx="2" stroke="#F2F2F2" stroke-width="2"></rect>
+							<path d="M38.8125 23L27.3125 34.5L38.8125 46" stroke="#F2F2F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+					  	</g>
+					  	<defs>
+							<clipPath id="clip0_181_1370">
+						  	<rect width="69" height="69" fill="white"></rect>
+							</clipPath>
+					  	</defs>
+						</svg>
+					</button>
+					<button class="swiper-button-next swiper-nav">
+						<svg xmlns="http://www.w3.org/2000/svg" width="69" height="69" viewBox="0 0 69 69" fill="none">
+					  	<g clip-path="url(#clip0_181_1369)">
+							<rect x="8.625" y="8.62512" width="51.75" height="51.75" rx="2" stroke="#F2F2F2" stroke-width="2"></rect>
+							<path d="M28.75 46L40.25 34.5L28.75 23" stroke="#F2F2F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+					  	</g>
+					  	<defs>
+							<clipPath id="clip0_181_1369">
+						  	<rect width="69" height="69" fill="white"></rect>
+							</clipPath>
+					  	</defs>
+						</svg>
+					</button>
 				</div>
-				<button class="swiper-button-prev swiper-nav">
-					<svg xmlns="http://www.w3.org/2000/svg" width="69" height="69" viewBox="0 0 69 69" fill="none">
-					  <g clip-path="url(#clip0_181_1370)">
-						<rect x="8.625" y="8.62512" width="51.75" height="51.75" rx="2" stroke="#F2F2F2" stroke-width="2"></rect>
-						<path d="M38.8125 23L27.3125 34.5L38.8125 46" stroke="#F2F2F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-					  </g>
-					  <defs>
-						<clipPath id="clip0_181_1370">
-						  <rect width="69" height="69" fill="white"></rect>
-						</clipPath>
-					  </defs>
-					</svg>
-				</button>
-				<button class="swiper-button-next swiper-nav">
-					<svg xmlns="http://www.w3.org/2000/svg" width="69" height="69" viewBox="0 0 69 69" fill="none">
-					  <g clip-path="url(#clip0_181_1369)">
-						<rect x="8.625" y="8.62512" width="51.75" height="51.75" rx="2" stroke="#F2F2F2" stroke-width="2"></rect>
-						<path d="M28.75 46L40.25 34.5L28.75 23" stroke="#F2F2F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-					  </g>
-					  <defs>
-						<clipPath id="clip0_181_1369">
-						  <rect width="69" height="69" fill="white"></rect>
-						</clipPath>
-					  </defs>
-					</svg>
-				</button>
 			</div>
 		<?php endif;?>
 	</div>

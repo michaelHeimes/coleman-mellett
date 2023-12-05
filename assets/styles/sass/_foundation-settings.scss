@@ -150,6 +150,14 @@ $header-lineheight: 1.4;
 $header-margin-bottom: 0.5rem;
 $header-styles: (
   small: (
+    'h1': ('font-size': 48),
+    'h2': ('font-size': 24),
+    'h3': ('font-size': 22.4),
+    'h4': ('font-size': 18),
+    'h5': ('font-size': 17),
+    'h6': ('font-size': 16),
+  ),
+  medium: (
     'h1': ('font-size': 84),
     'h2': ('font-size': 33.6),
     'h3': ('font-size': 22.4),
@@ -157,8 +165,8 @@ $header-styles: (
     'h5': ('font-size': 17),
     'h6': ('font-size': 16),
   ),
-  medium: (
-    'h1': ('font-size': 120),
+  tablet: (
+    'h1': ('font-size': 100),
     'h2': ('font-size': 48),
     'h3': ('font-size': 32),
     'h4': ('font-size': 25),
