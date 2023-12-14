@@ -10,6 +10,13 @@
 		h2 {
 			margin-bottom: 0;
 		}
+		.copy-wrap {
+			position: relative;
+			p:only-child,
+			p:last-child {
+				margin-bottom: 0;
+			}
+		}
 	}
 	.align-right {
 		.bg {

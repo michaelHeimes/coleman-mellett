@@ -1,5 +1,6 @@
 <?php
 $section_header = get_sub_field('section_header') ?? null;
+$copy = $section_header['copy'] ?? null;
 $alignment = $section_header['alignment'] ?? null;
 $background_color = $section_header['background_color'] ?? null;
 $width = $section_header['width'] ?? null;
@@ -12,7 +13,7 @@ if($add_handwriting == 'true') {
 }
 
 ?>
-<?php if( !empty($header_text) ):?>
+<?php if( !empty($header_text) || !empty($copy) ):?>
 <section class="section-header">
 	<div class="grid-container">
 		<div class="grid-x grid-padding-x align-<?= esc_attr($alignment);?> relative<?php if($add_handwriting == 'true') { echo ' has-hwi'; };?>">
@@ -27,7 +28,14 @@ if($add_handwriting == 'true') {
 			<div class="left cell small-10<?php if( $alignment == 'right' ) { echo ' small-10 small-offset-2'; };?> medium-<?= esc_attr($width);?>">
 				<div class="inner has-bg overflow-<?= esc_attr($alignment);?>">
 					<div class="bg bg-<?= esc_attr($background_color);?>"></div>
-					<h2 class="relative"><?= esc_attr($header_text);?></h2>
+					<?php if( !empty($header_text) ):?>
+						<h2 class="relative"><?= esc_attr($header_text);?></h2>
+					<?php endif;?>
+					<?php if( !empty($copy) ):?>
+						<div class="copy-wrap">
+							<?=$copy;?>
+						</div>
+					<?php endif;?>
 				</div>
 			</div>
 		</div>

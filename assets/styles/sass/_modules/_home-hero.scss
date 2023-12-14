@@ -33,6 +33,7 @@
 			margin-bottom: 0;
 			line-height: 1.33333;
 			padding: 1.68rem 0 1.6rem;
+			max-width: 400px;
 			@include breakpoint(medium) {
 				padding: 2.68rem 0 2.6rem;
 			}

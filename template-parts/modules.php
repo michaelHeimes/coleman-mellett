@@ -32,6 +32,8 @@ if( have_rows('content_modules') ):
 			get_template_part($root, 'award_logos');
 		elseif( get_row_layout() == 'fullwidth_video' ):
 			get_template_part($root, 'fullwidth_video');
+			elseif( get_row_layout() == 'single_video' ):
+			get_template_part($root, 'single_video');
 		elseif( get_row_layout() == 'photo_gallery' ):
 			get_template_part($root, 'photo_gallery');
 		elseif( get_row_layout() == 'video_gallery' ):

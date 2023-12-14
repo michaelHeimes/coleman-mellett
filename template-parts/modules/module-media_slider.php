@@ -178,7 +178,7 @@ if($add_handwriting) {
 					<div class="cell small-12 medium-10 large-8">
 						<div class="bottom grid-x grid-padding-x align-center flex-dir-column medium-flex-dir-row">
 							<div class="cell small-12 medium-auto">
-								<nav class="slider-nav grid-x grid-padding-x">
+								<nav class="slider-nav grid-x grid-padding-x show-for-medium">
 									<div class="cell shrink">
 										<button class="no-style swiper-button-prev" type="button" aria-controls="Previous Slide">
 											<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="55px" height="55px" viewBox="0 0 55 55" version="1.1"><title>Prev Icon</title><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Icon" transform="translate(27.499880, 27.500000) rotate(-180.000000) translate(-27.499880, -27.500000) translate(1.624880, 1.625000)" stroke="#1B283A" stroke-width="2"><rect id="Rectangle" x="0" y="0" width="51.75" height="51.75" rx="2"></rect><polyline id="Path" stroke-linecap="round" stroke-linejoin="round" points="20.12512 37.375 31.62512 25.875 20.12512 14.375"></polyline></g></g></svg>

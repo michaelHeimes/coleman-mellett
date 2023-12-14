@@ -45,7 +45,7 @@ $featured_video_url = $video_gallery['featured_video_url'];
 					$attributes = 'frameborder="0"';
 					$iframe = str_replace('></iframe>', ' data-src="' . $new_src . '"' . $attributes . '></iframe>', $iframe);?>
 					
-					<div class="featured-video video-wrap has-mask responsive-embed widescreen">
+					<div class="single-video-wrap video-wrap has-mask responsive-embed widescreen">
 						<?= $iframe;?>
 						<button class="video-mask">
 							<img src="<?=$thumbnailUrl;?>">

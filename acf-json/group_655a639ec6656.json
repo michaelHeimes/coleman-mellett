@@ -278,7 +278,30 @@
                     "name": "single_video",
                     "label": "Single Video",
                     "display": "block",
-                    "sub_fields": [],
+                    "sub_fields": [
+                        {
+                            "key": "field_65789a31ff6ad",
+                            "label": "Single Video",
+                            "name": "single_video_clone",
+                            "aria-label": "",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_655cb733aa2fc"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
                     "min": "",
                     "max": ""
                 },
@@ -564,5 +587,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1701570431
+    "modified": 1702402626
 }

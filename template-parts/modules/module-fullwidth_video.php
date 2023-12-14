@@ -5,8 +5,22 @@ $fullwidth_video = get_sub_field('fullwidth_video') ?? null;
 <section class="module fullwidth-video">
 	<?php
 	
+	$youtube_url =  $fullwidth_video['video_url'];	
+	
+	if($youtube_url):
+	
+	$videoId = '';
+	$pattern = '/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/';
+	preg_match($pattern, $youtube_url, $matches);
+	
+	if (isset($matches[1])) {
+		$videoId = $matches[1];
+	}						
+	
+	$thumbnailUrl = 'https://i3.ytimg.com/vi_webp/' . $videoId . '/maxresdefault.webp';
+	
 	// Load value.
-	$iframe = $fullwidth_video['video_url'];
+	$iframe = $youtube_url;
 	
 	// Use preg_match to find iframe src.
 	preg_match('/src="(.+?)"/', $iframe, $matches);
@@ -14,21 +28,27 @@ $fullwidth_video = get_sub_field('fullwidth_video') ?? null;
 	
 	// Add extra parameters to src and replace HTML.
 	$params = array(
-		'controls'  => 1,
-		'hd'        => 1,
-		'autohide'  => 1
+		'controls'  	 => 1,
+		'hd'        	 => 1,
+		'autohide'  	 => 1,
+		'enablejsapi'    => 1,
+		'rel' 			 => 0,
 	);
 	$new_src = add_query_arg($params, $src);
 	$iframe = str_replace($src, $new_src, $iframe);
 	
 	// Add extra attributes to iframe HTML.
 	$attributes = 'frameborder="0"';
-	$iframe = str_replace('></iframe>', ' ' . $attributes . '></iframe>', $iframe);
+	$iframe = str_replace('></iframe>', ' ' . $attributes . '></iframe>', $iframe);?>
 	
-	// Display customized HTML.
-	echo '<div class="responsive-embed widescreen">';
-	echo $iframe;
-	echo '</div>';
-	?>
+	<div class="single-video-wrap video-wrap has-mask responsive-embed widescreen">
+	<?= $iframe;?>
+	<button class="video-mask">
+		<img src="<?=$thumbnailUrl;?>">
+		<svg width="119" height="138" viewBox="0 0 119 138" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M119 69L0.499994 137.416L0.5 0.583987L119 69Z" fill="white"/></svg>
+	</button> 
+	</div>
+	<?php endif;?>
+	
 </section>
 <?php endif;?>

@@ -146,6 +146,7 @@
         });
     }
     
+        
     _app.media_image_slider = function() {
             
         const mediaSliders = document.querySelectorAll('.media-slider');
@@ -275,76 +276,77 @@
             
     }
     
-    _app.featured_video_mask = function() {
-        const mask = document.querySelector('.featured-video.video-wrap.has-mask .video-mask');
+    _app.video_masks = function() {
+        const masks = document.querySelectorAll('.single-video-wrap.video-wrap.has-mask .video-mask');
         
-        if(mask) {
-
-            //Fade Function
-            function fadeIn(element, duration) {
-                let opacity = 0;
-                element.style.display = 'block';
-            
-                const interval = 10;
-                const step = 1 / (duration / interval);
-            
-                function updateOpacity() {
-                    if (opacity < 1) {
-                        opacity += step;
-                        element.style.opacity = opacity;
-                        setTimeout(updateOpacity, interval);
+        if(masks) {
+            masks.forEach(function (mask) {
+                //Fade Function
+                function fadeIn(element, duration) {
+                    let opacity = 0;
+                    element.style.display = 'block';
+                
+                    const interval = 10;
+                    const step = 1 / (duration / interval);
+                
+                    function updateOpacity() {
+                        if (opacity < 1) {
+                            opacity += step;
+                            element.style.opacity = opacity;
+                            setTimeout(updateOpacity, interval);
+                        }
                     }
+                
+                    updateOpacity();
                 }
-            
-                updateOpacity();
-            }
-            
-            function fadeOut(element, duration) {
-                let opacity = 1;
-            
-                const interval = 10;
-                const step = 1 / (duration / interval);
-            
-                function updateOpacity() {
-                    if (opacity > 0) {
-                        opacity -= step;
-                        element.style.opacity = opacity;
-                        setTimeout(function () {
-                            updateOpacity();
-                            if (opacity <= 0) {
-                                element.style.display = 'none';
-                            }
-                        }, interval);
+                
+                function fadeOut(element, duration) {
+                    let opacity = 1;
+                
+                    const interval = 10;
+                    const step = 1 / (duration / interval);
+                
+                    function updateOpacity() {
+                        if (opacity > 0) {
+                            opacity -= step;
+                            element.style.opacity = opacity;
+                            setTimeout(function () {
+                                updateOpacity();
+                                if (opacity <= 0) {
+                                    element.style.display = 'none';
+                                }
+                            }, interval);
+                        }
                     }
+                    updateOpacity();
                 }
-                updateOpacity();
-            }
+                
+                const video = mask.parentElement.querySelector('iframe');   
             
-            const video = mask.parentElement.querySelector('iframe');   
-        
-            // Define a variable to hold the YouTube player
-            let player;
-            
-            // Create the YouTube player when the iframe is ready
-            video.onload = function() {
-              player = new YT.Player(video, {
-                events: {
-                  'onReady': onPlayerReady,
+                // Define a variable to hold the YouTube player
+                let player;
+                
+                // Create the YouTube player when the iframe is ready
+                video.onload = function() {
+                  player = new YT.Player(video, {
+                    events: {
+                      'onReady': onPlayerReady,
+                    }
+                  });
+                };
+                
+                function onPlayerReady(event) {
+                    mask.addEventListener('click', function(event) {
+                        event.preventDefault();
+                        // Check if the player is valid before playing
+                            player.playVideo();
+                    });    
                 }
-              });
-            };
-            
-            function onPlayerReady(event) {
+                
                 mask.addEventListener('click', function(event) {
                     event.preventDefault();
-                    // Check if the player is valid before playing
-                        player.playVideo();
-                });    
-            }
-            
-            mask.addEventListener('click', function(event) {
-                event.preventDefault();
-                fadeOut( mask, 250);
+                    fadeOut( mask, 250);
+                });
             });
             
         }
@@ -597,7 +599,7 @@
         
         // Custom Functions
         //_app.mobile_takover_nav();
-        _app.featured_video_mask();
+        _app.video_masks();
         _app.media_image_slider();
         _app.gallery_load_more();
         

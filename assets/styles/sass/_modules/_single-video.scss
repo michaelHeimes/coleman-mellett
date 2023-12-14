@@ -1,0 +1,18 @@
+.single-video {
+	padding-top: rem-calc(32);
+	padding-bottom: rem-calc(32);
+	@include breakpoint(medium) {
+		padding-top: rem-calc(80);
+		padding-bottom: rem-calc(80);
+	}
+	.cell {
+		padding-top: 5.1rem;
+		padding-left: 0;
+		h2 {
+			margin-bottom: 2.72rem;
+		}
+		.responsive-embed {
+			margin-bottom: 0;
+		}
+	}
+}
