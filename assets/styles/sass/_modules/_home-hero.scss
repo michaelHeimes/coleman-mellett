@@ -3,10 +3,21 @@
 		.left {
 			padding-top: 45.134vw;
 			padding-bottom: 5vw;
+			position: relative;
+			.bg {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				width: 100vw;
+				left: -100vw;
+			}
+			h1 {
+				font-size: rem-calc(120);
+				font-size: 9vw;
+				font-size: clamp(rem-calc(34), 9vw, rem-calc(120));
+			}
 			@include breakpoint(tablet) {
-				h1 {
-					font-size: rem-calc(120);
-				}
+
 			}
 			@media (min-width: 1204px) {
 				padding-top: 34rem;	
@@ -18,12 +29,16 @@
 			top: 0;
 			bottom: 0;
 			right: 0;
-			width: 50vw;
 			max-width: 720px;
 			overflow: hidden;
+			width: 65vw;
+			@media (min-width: 1550px) {
+				width: 50%;
+			}
 			img {
 				display: block;
 				object-position: right;
+				transform: translateX(2vw);
 			}
 		}
 	}

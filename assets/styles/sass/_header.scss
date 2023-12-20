@@ -2,6 +2,11 @@ header.site-header {
 	position: absolute;
 	width: 100%;
 	z-index: 999;
+	p.site-title.h2 {
+		@include breakpoint(small down) {
+			font-size: clamp(1.2rem, 4.5vw, 1.5rem);
+		}
+	}
 	#top-bar-menu {
 		.site-branding {
 			padding-top: 1rem;

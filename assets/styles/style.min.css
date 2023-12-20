@@ -6333,7 +6333,6 @@ body,
   margin: auto;
   width: 100%;
   height: 100%;
-  overflow-x: hidden;
 }
 
 /*********************
@@ -6345,7 +6344,6 @@ BACKGROUND COLORS
 
 .bg-green {
   background-color: #A7FF92;
-  background-color: rgba(138, 255, 110, 0.75);
 }
 
 .bg-aqua {
@@ -7149,6 +7147,11 @@ header.site-header {
   width: 100%;
   z-index: 999;
 }
+@media print, screen and (max-width: 39.99875em) {
+  header.site-header p.site-title.h2 {
+    font-size: clamp(1.2rem, 4.5vw, 1.5rem);
+  }
+}
 header.site-header #top-bar-menu .site-branding {
   padding-top: 1rem;
 }
@@ -7355,11 +7358,19 @@ footer#colophon .copyright {
 .home-hero .top .left {
   padding-top: 45.134vw;
   padding-bottom: 5vw;
+  position: relative;
 }
-@media print, screen and (min-width: 56.25em) {
-  .home-hero .top .left h1 {
-    font-size: 7.5rem;
-  }
+.home-hero .top .left .bg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100vw;
+  left: -100vw;
+}
+.home-hero .top .left h1 {
+  font-size: 7.5rem;
+  font-size: 9vw;
+  font-size: clamp(2.125rem, 9vw, 7.5rem);
 }
 @media (min-width: 1204px) {
   .home-hero .top .left {
@@ -7372,14 +7383,21 @@ footer#colophon .copyright {
   top: 0;
   bottom: 0;
   right: 0;
-  width: 50vw;
   max-width: 720px;
   overflow: hidden;
+  width: 65vw;
+}
+@media (min-width: 1550px) {
+  .home-hero .top .img-wrap {
+    width: 50%;
+  }
 }
 .home-hero .top .img-wrap img {
   display: block;
   -o-object-position: right;
      object-position: right;
+  -webkit-transform: translateX(2vw);
+          transform: translateX(2vw);
 }
 .home-hero .bottom p {
   font-size: 1rem;

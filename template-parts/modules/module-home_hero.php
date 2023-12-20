@@ -18,7 +18,8 @@ $tagline = $home_hero['tagline'] ?? null;
 		}?>
 		<div class="grid-container">
 			<div class="grid-x grid-padding-x">
-				<div class="left cell small-12 medium-6">
+				<div class="left cell small-12 medium-6 relative">
+					<div class="bg bg-<?=$background_color;?>"></div>
 					<?php if( !empty( $title ) ):?>
 						<h1><?= $title;?></h1>
 					<?php endif;?>

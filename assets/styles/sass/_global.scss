@@ -10,7 +10,6 @@ body,
 	margin: auto;
 	width: 100%;
 	height: 100%;
-	overflow-x: hidden;
 }
 /*********************
 BACKGROUND COLORS
@@ -21,7 +20,7 @@ BACKGROUND COLORS
 }
 .bg-green {
 	background-color: $color-green;
-	background-color: rgba(#8aff6e, .75);
+	// background-color: rgba(#8aff6e, .75);
 }
 .bg-aqua {
 	background-color: $color-aqua;
