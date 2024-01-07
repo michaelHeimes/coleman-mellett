@@ -1,6 +1,6 @@
 .media-slider {
 	padding-bottom: rem-calc(45);
-	@include breakpoint(medium) {
+	@include breakpoint(tablet) {
 		padding-bottom: rem-calc(70);
 	}
 	.section-header {

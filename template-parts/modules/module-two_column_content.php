@@ -21,38 +21,43 @@ if( $rbp_field == 'true' ) {
 }
 
 if( $layout == '6-6' ) {
-	$left_layout = ' medium-6';
-	$right_layout = ' medium-6';
+	$left_layout = ' tablet-6';
+	$right_layout = ' tablet-6';
 }
 
 if( $layout == '5-1-6' ) {
-	$left_layout = ' medium-6 tablet-5';
-	$right_layout = ' medium-6 tablet-6 tablet-offset-1';
+	$left_layout = ' tablet-6 xlarge-5';
+	$right_layout = ' tablet-6 xlarge-6 xlarge-offset-1';
 }
 
 if( $layout == '6-1-5' ) {
-	$left_layout = ' medium-6 tablet-6';
-	$right_layout = ' medium-6 tablet-5 tablet-offset-1';
+	$left_layout = ' tablet-6';
+	$right_layout = ' tablet-6 xlarge-5 xlarge-offset-1';
 }
 
 if( $layout == '7-5' ) {
-	$left_layout = ' medium-6 tablet-7';
-	$right_layout = ' medium-6 tablet-5';
+	$left_layout = ' tablet-6 xlarge-7';
+	$right_layout = ' tablet-6 xlarge-5';
 }
 
 $align_middle = '';
 if (!empty($left_column) && $left_column['content_type'] == 'image' || !empty($right_column) && $right_column['content_type'] == 'image') {
-	$align_middle = ' align-middle';
+	$align_middle = ' xlarge-align-middle';
 }
 ?>
 <section class="module two-column-content top-stacked-<?= $top_section_when_stacked;?> <?= $rtp;?> <?=$rbp;?>">
 	<div class="grid-container">
-		<div class="inner grid-x grid-padding-x<?= $align_middle;?>">
+		<div class="inner grid-x grid-padding-x <?=$align_middle;?>">
 			<?php if( !empty($left_column) ):
 				$content_type = $left_column['content_type'] ?? null;
 				$copy = $left_column['copy'] ?? null;
 				$image = $left_column['image'] ?? null;
 				$pull_image_left = $left_column['pull_image_to_flush_left'] ?? null;
+				$hide_image_on_mobile = $left_column['hide_image_on_mobile'] ?? null;
+				$hide_class = '';
+				if($hide_image_on_mobile == true) {
+					$hide_class = 'show-for-tablet'; 
+				}
 				$add_handwriting = $left_column['add_handwriting'] ?? null;
 				if($add_handwriting == 'true') {
 					$handwriting_image = $left_column['handwriting_image'] ?? null;
@@ -94,7 +99,7 @@ if (!empty($left_column) && $left_column['content_type'] == 'image' || !empty($r
 					$imgID = $image['ID'];
 					$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
 					$img = wp_get_attachment_image( $imgID, $size, false, [ "class" => "", "alt"=>$img_alt] );
-					echo '<div class="img-wrap relative">';
+					echo '<div class="img-wrap relative ' . $hide_class . '">';
 					echo $img;
 					echo '</div>';
 				}?>
@@ -105,6 +110,11 @@ if (!empty($left_column) && $left_column['content_type'] == 'image' || !empty($r
 				$copy = $right_column['copy'] ?? null;
 				$image = $right_column['image'] ?? null;
 				$pull_image_right = $right_column['pull_image_to_flush_right'] ?? null;
+				$hide_image_on_mobile = $right_column['hide_image_on_mobile'] ?? null;
+				$hide_class = '';
+				if($hide_image_on_mobile == true) {
+					$hide_class = 'show-for-tablet'; 
+				}
 				$add_handwriting = $right_column['add_handwriting'] ?? null;
 				if($add_handwriting == 'true') {
 					$handwriting_image = $right_column['handwriting_image'] ?? null;
@@ -129,7 +139,7 @@ if (!empty($left_column) && $left_column['content_type'] == 'image' || !empty($r
 					$imgID = $image['ID'];
 					$img_alt = trim( strip_tags( get_post_meta( $imgID, '_wp_attachment_image_alt', true ) ) );
 					$img = wp_get_attachment_image( $imgID, 'full', false, [ "class" => "", "alt"=>$img_alt] );
-					echo '<div class="img-wrap relative">';
+					echo '<div class="img-wrap relative ' . $hide_class . '">';
 					echo $img;
 					echo '</div>';
 				}?>

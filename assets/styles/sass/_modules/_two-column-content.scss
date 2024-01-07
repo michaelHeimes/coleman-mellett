@@ -2,24 +2,28 @@
 	padding-top: rem-calc(32);
 	padding-bottom: rem-calc(32);
 	@include breakpoint(medium) {
-		padding-top: rem-calc(80);
-		padding-bottom: rem-calc(80);
+		padding-top: rem-calc(50);
+		padding-bottom: rem-calc(50);
+	}
+	@include breakpoint(tablet) {
+		padding-top: rem-calc(70);
+		padding-bottom: rem-calc(70);
 	}
 	&.top-stacked-left {
 		.left {
-			@include breakpoint(small down) {
+			@include breakpoint(medium down) {
 				margin-bottom: rem-calc(30);
 			}
 		}
 	}
 	&.top-stacked-right {
-		@include breakpoint(small down) {
+		@include breakpoint(medium down) {
 			.grid-x {
 				flex-direction: column-reverse;	
 			}
 		}
 		.right {
-			@include breakpoint(small down) {
+			@include breakpoint(medium down) {
 				margin-bottom: rem-calc(30);
 			}
 		}
@@ -36,10 +40,15 @@
 	}
 	.inner.align-middle {
 		.copy-wrap {
-			@include breakpoint(medium) {
+			@include breakpoint(tablet) {
 				padding-top: 3rem;
 				padding-bottom: 3rem;	
 			}
+		}
+	}
+	.inner.xlarge-align-middle {
+		@include breakpoint(xlarge) {
+			align-items: center;
 		}
 	}
 }

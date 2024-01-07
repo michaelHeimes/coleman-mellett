@@ -1,7 +1,7 @@
 .award-logos {
 	padding-top: rem-calc(32);
 	padding-bottom: rem-calc(32);
-	@include breakpoint(medium) {
+	@include breakpoint(tablet) {
 		padding-top: rem-calc(80);
 		padding-bottom: rem-calc(80);
 	}

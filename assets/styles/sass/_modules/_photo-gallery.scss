@@ -1,4 +1,5 @@
 .photo-gallery {
+	padding-top: rem-calc(6);
 	.grid-x.gallery-mosaic {
 		> .cell {
 			&.height-320 > a  {

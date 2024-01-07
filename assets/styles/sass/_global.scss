@@ -11,6 +11,18 @@ body,
 	width: 100%;
 	height: 100%;
 }
+
+html {
+	@media (max-width: 1440px) {
+		width: 100%;
+		height: 100%;
+		overflow-x: hidden;
+	}
+}
+
+body {
+	overflow-x: hidden;
+}
 /*********************
 BACKGROUND COLORS
 *********************/
@@ -31,6 +43,10 @@ BACKGROUND COLORS
 	a {
 		color: $white;
 	}
+}
+
+.overflow-hidden {
+	overflow: hidden;
 }
 
 .copy-wrap a {
@@ -116,6 +132,7 @@ svg {
 		.bg {
 			width: 100vw;
 			left: auto;
+			right: -0.9375rem;
 		}
 	}
 	&.overflow-right {
@@ -142,6 +159,10 @@ svg {
 	position: relative;
 }
 
+.reveal {
+
+}
+
 .load-more-gallery {
 	.btn-wrap {
 		margin-bottom: rem-calc(80);
@@ -152,24 +173,47 @@ svg {
 }
 
 .gallery-modal {
+	height: 100%;
+	@include breakpoint(medium down) {
+		padding-left: 3.7rem;
+		padding-right: 3.7rem;
+	}
 	.close-btn-wrap {
-		padding-bottom: 1rem;
+		width: 100%;
+		button {
+			position: absolute;
+			top: 1rem;
+			right: 0;
+			@include breakpoint(medium down) {
+				width: 28px;
+			}
+		}
 	}
 }
 
 .gallery-slider {
-	overflow: hidden;
+	padding-top: 4rem;
+	padding-bottom: 4rem;
+	@include breakpoint(tablet) {
+		padding-top: 6rem;
+		padding-bottom: 6rem;
+	}
 	.swiper-slide {
 		.img-wrap {
-		padding: 40px;
 		}
 		img {
-			box-shadow: 0px 0px 40px 0px #000;
+			@include breakpoint(tablet) {
+				box-shadow: 0px 0px 40px 0px #000;
+			}
 		}
 	}
 	button.swiper-nav {
-		width: 69px;
-		height: 69px;
+		width: 40px;
+		height: 40px;
+		@include breakpoint(tablet) {
+			width: 69px;
+			height: 69px;
+		}
 		&:after {
 			font-size: 0;
 		}
@@ -295,14 +339,17 @@ button,
 	letter-spacing: 0.02em;
 }
 
-@include breakpoint(medium) {
-	.platform-icon-links {
-		margin-left: -rem-calc(24);	
-		margin-right: -rem-calc(24);	
-		> .cell {
-			padding-left: rem-calc(24);	
-			padding-right: rem-calc(24);
-			margin-bottom: rem-calc(24);	
+.platform-icon-links {
+	margin-left: -rem-calc(24);	
+	margin-right: -rem-calc(24);	
+	> .cell {
+		max-width: 100px;
+		padding-left: rem-calc(24);	
+		padding-right: rem-calc(24);
+		margin-top: rem-calc(10);
+		margin-bottom: rem-calc(24);	
+		@include breakpoint(tablet) {
+			max-width: none;
 		}
 	}
 }

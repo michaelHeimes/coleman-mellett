@@ -454,11 +454,9 @@
                 const nextBtn = slider.querySelector('.swiper-button-next');  
                 
                 const closeBtn = slider.parentElement.parentElement.querySelector('.close-button');
-                
-                console.log(closeBtn);
-                                    
+   
                 const videos = slider.querySelectorAll('iframe'); 
-                
+
                 videos.forEach(function (video) {
 
                     const iframeSrc = video.getAttribute('data-src'); 

@@ -244,7 +244,7 @@ require_once(get_template_directory().'/inc/editor-styles.php');
 require_once(get_template_directory().'/inc/acf-json.php');
 
 // ACF json
-require_once(get_template_directory().'/inc/acf-options.php');
+//require_once(get_template_directory().'/inc/acf-options.php');
 
 // ACF Block
 //require_once(get_template_directory().'/inc/acf-blocks.php');

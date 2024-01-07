@@ -5,7 +5,7 @@ $videos = $video_gallery['videos'] ?? null;
 $featured_video_url = $video_gallery['featured_video_url'];
 ?>
 <?php if( !empty($video_gallery) ):?>
-<section class="module video-gallery load-more-gallery">
+<section class="module video-gallery load-more-gallery overflow-hidden">
 	<div class="grid-container">
 		<div class="grid-x grid-padding-x">
 			<div class="cell small-12">
@@ -103,7 +103,7 @@ $featured_video_url = $video_gallery['featured_video_url'];
 		</div>
 		<?php if($videos ) :?>
 			<script src="https://www.youtube.com/iframe_api"></script>
-			<div class="gallery-slider">
+			<div class="gallery-slider overflow-hidden">
 				<div class="swiper-container">
 					<div class="swiper-wrapper">
 						<?php $si = 0;  foreach($videos as $video):?>

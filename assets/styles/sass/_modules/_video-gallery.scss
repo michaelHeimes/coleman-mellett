@@ -1,4 +1,5 @@
 .video-gallery {
+	padding-top: rem-calc(40);
 	.images-wrap {
 		> .cell > a {
 			display: block;
@@ -6,6 +7,16 @@
 			@media screen and (min-width: 1140px) {
 				height: 310px;
 			}
+		}
+	}
+	.single-video-wrap {
+		svg {
+			max-width: clamp(60px, 10vw, 100%);
+		}
+	}
+	.gallery-mosaic {
+		svg {
+			max-width: clamp(26px, 5vw, 100%);
 		}
 	}
 }

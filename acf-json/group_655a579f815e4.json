@@ -517,7 +517,7 @@
                                 ]
                             ],
                             "wrapper": {
-                                "width": "50",
+                                "width": "33",
                                 "class": "",
                                 "id": ""
                             },
@@ -550,7 +550,27 @@
                                 ]
                             ],
                             "wrapper": {
-                                "width": "50",
+                                "width": "33",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 0,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_6599e0aaf3c68",
+                            "label": "Hide Image on Mobile",
+                            "name": "hide_image_on_mobile",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "33",
                                 "class": "",
                                 "id": ""
                             },
@@ -669,7 +689,7 @@
                                 ]
                             ],
                             "wrapper": {
-                                "width": "50",
+                                "width": "33",
                                 "class": "",
                                 "id": ""
                             },
@@ -702,7 +722,27 @@
                                 ]
                             ],
                             "wrapper": {
-                                "width": "50",
+                                "width": "33",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 0,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_6599e1209766e",
+                            "label": "Hide Image on Mobile",
+                            "name": "hide_image_on_mobile",
+                            "aria-label": "",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "33",
                                 "class": "",
                                 "id": ""
                             },
@@ -2275,5 +2315,5 @@
     "active": false,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1702402954
+    "modified": 1704583490
 }
