@@ -1,7 +1,9 @@
 .fullwidth-copy-img {
 	.has-bg.overflow-left .bg {
-		left: -0.9375rem;
-		width: calc(100vw + 0.9375rem);
+		@include breakpoint(medium down) {
+			left: -0.9375rem;
+			width: calc(100vw + 0.9375rem);
+		}
 		@include breakpoint(tablet) {
 			right: -15%;
 		}

@@ -1,6 +1,10 @@
 .page-banner {
 	padding-top: 18.5066vw;
 	padding-bottom: 5vw;
+	.bg {
+		width: 200vw;
+		transform: translateX(-100vw);
+	}
 	@media (min-width: 1204px) {
 		padding-top: rem-calc(223);
 		padding-bottom: rem-calc(61);

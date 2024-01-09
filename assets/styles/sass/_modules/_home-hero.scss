@@ -1,9 +1,10 @@
 .home-hero {
 	.top {
 		.left {
-			padding-top: 45.134vw;
+			//padding-top: 45.134vw;
 			padding-bottom: 5vw;
 			position: relative;
+			min-height: clamp(rem-calc(214), 62.5vw, rem-calc(900));
 			.bg {
 				position: absolute;
 				top: 0;
@@ -12,6 +13,7 @@
 				left: -100vw;
 			}
 			h1 {
+				padding-top: .8em;
 				font-size: rem-calc(120);
 				font-size: 9vw;
 				font-size: clamp(rem-calc(34), 9vw, rem-calc(120));
@@ -20,7 +22,6 @@
 
 			}
 			@media (min-width: 1204px) {
-				padding-top: 34rem;	
 				padding-bottom: 3.8rem;
 			}
 		}

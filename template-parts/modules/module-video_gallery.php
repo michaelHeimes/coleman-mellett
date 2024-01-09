@@ -96,7 +96,7 @@ $featured_video_url = $video_gallery['featured_video_url'];
 		</div>
 	</div>
 	<div class="gallery-modal reveal" id="gallery-modal-<?=$row;?>" data-reveal data-animation-in="fade-in fast" data-animation-out="fade-out fast">
-		<div class="grid-x align-right close-btn-wrap">
+		<div class="grid-x align-right close-btn-wrap relative">
 			<button class="close-button" data-close aria-label="Close modal" type="button">
 				<svg xmlns="http://www.w3.org/2000/svg" height="40" width="40" viewBox="0 0 512 512"><path d="M256 32a224 224 0 1 1 0 448 224 224 0 1 1 0-448zm0 480A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM180.7 180.7c-6.2 6.2-6.2 16.4 0 22.6L233.4 256l-52.7 52.7c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0L256 278.6l52.7 52.7c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L278.6 256l52.7-52.7c6.2-6.2 6.2-16.4 0-22.6s-16.4-6.2-22.6 0L256 233.4l-52.7-52.7c-6.2-6.2-16.4-6.2-22.6 0z" fill="#ffffff"/></svg>
 			</button>
@@ -133,11 +133,12 @@ $featured_video_url = $video_gallery['featured_video_url'];
 								
 								// Display customized HTML.
 								echo '<div class="swiper-slide grid-x align-middle align-center" data-image="image-' . esc_attr($si) . '" data-swiper-slide-index="' .  esc_attr( $si ) . '">';
+								echo '<div class="responsive-embed-wrapper grid-x align-center align-middle">';
 								echo '<div class="responsive-embed widescreen">';
 								echo $iframe;
 								echo '</div>';
 								echo '</div>';
-							
+								echo '</div>';
 							}?>
 						<?php $si++; endforeach;?>
 					</div>
