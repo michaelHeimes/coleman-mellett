@@ -32,7 +32,7 @@ header.site-header {
 			
 			@include breakpoint(tablet) {
 				transform: rotate(90deg) translate(-12vw, 25%);
-				width: 100vh;
+				min-width: 100vh;
 				max-width: 900px;
 			}
 			

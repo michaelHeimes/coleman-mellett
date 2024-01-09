@@ -2,4 +2,9 @@
 	.responsive-embed {
 		margin-bottom: 0;
 	}
+	.video-mask {
+		svg {
+			max-width: clamp(60px, 10vw, 100%);
+		}
+	}
 }

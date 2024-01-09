@@ -32,4 +32,9 @@
 	.btn-wrap {
 		padding-top: 0.5rem;
 	}
+	.video-slider {
+		.video-mask svg {
+			max-width: clamp(60px, 10vw, 100%);
+		}
+	}
 }
