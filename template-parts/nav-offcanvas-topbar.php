@@ -43,12 +43,18 @@
 						</ul>
 									
 					</div>
-					<div class="top-bar-right">
+					<div class="top-bar-right show-for-medium">
 						<div class="grid-x align-right">
 							<div class="cell shrink">
 								<?php trailhead_top_nav();?>
 							</div>
 						</div>
+					</div>
+					<div class="menu-toggle-wrap top-bar-right float-right hide-for-medium">
+						<ul class="menu">
+							<!-- <li><button class="menu-icon" type="button" data-toggle="off-canvas"></button></li> -->
+							<li><a id="menu-toggle" data-toggle="off-canvas"><span></span><span></span><span></span></a></li>
+						</ul>
 					</div>
 				</div>
 				
