@@ -107,26 +107,7 @@
         $('.display-on-load').css('visibility', 'visible');
     }
     
-    // Custom Functions
-    
-    _app.mobile_takover_nav = function() {
-        $(document).on('click', 'a#menu-toggle', function(){
-            
-            if ( $(this).hasClass('clicked') ) {
-                $(this).removeClass('clicked');
-                $('#off-canvas').fadeOut(200);
-            
-            } else {
-            
-                $(this).addClass('clicked');
-                $('#off-canvas').fadeIn(200);
-            
-            }
-            
-        });
-    }
-    
-        
+    // Custom Functions    
     _app.media_image_slider = function() {
             
         const mediaSliders = document.querySelectorAll('.media-slider');
@@ -575,7 +556,6 @@
         //_app.display_on_load();
         
         // Custom Functions
-        //_app.mobile_takover_nav();
         _app.video_masks();
         _app.media_image_slider();
         _app.gallery_load_more();

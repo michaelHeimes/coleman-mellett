@@ -1,7 +1,51 @@
+a#menu-toggle[aria-expanded="true"] {
+	transform: translateX(-250px);
+}
+.menu-toggle-wrap {
+	width: auto;
+	flex: 0 0 auto;
+	
+	a#menu-toggle {
+		position: fixed;
+		z-index: 999999;
+		padding: 0;
+		width: 36px;
+		height: 36px;
+		top: 0.5rem;
+		right: 0.9375rem;
+		transition: transform 0.5s ease;
+		
+		span {
+			position: absolute;
+			left: 0;
+			right: 0;
+			width: 36px;
+			height: 4px;
+			background-color: $color-eggplant;
+			transition: all .3s ease;
+			
+			&:nth-child(1) {
+				top: 4px;
+			}
+
+			&:nth-child(2) {
+				top: 16px;
+			}
+			
+			&:nth-child(3) {
+				bottom: 4px;
+			}
+
+		}
+		
+	}
+	
+}
 header.site-header {
 	position: absolute;
 	width: 100%;
 	z-index: 999;
+	transition: transform .5s ease;
 	p.site-title.h2 {
 		@include breakpoint(small down) {
 			font-size: clamp(1.2rem, 4.5vw, 1.5rem);
@@ -95,45 +139,6 @@ header.site-header {
 
 			}
 		}
-		
-		.menu-toggle-wrap {
-		    width: auto;
-		    flex: 0 0 auto;
-		    
-		    a#menu-toggle {
-				position: fixed;
-			    padding: 0;
-			    width: 36px;
-			    height: 36px;
-				top: 0.5rem;
-				right: 0.9375rem;
-			    
-			    span {
-				    position: absolute;
-				    left: 0;
-				    right: 0;
-				    width: 36px;
-				    height: 4px;
-				    background-color: $color-eggplant;
-					transition: all .3s ease;
-				    
-				    &:nth-child(1) {
-					    top: 4px;
-				    }
-
-				    &:nth-child(2) {
-					    top: 16px;
-				    }
-				    
-				    &:nth-child(3) {
-					    bottom: 4px;
-				    }
-
-			    }
-			    
-		    }
-		    
-		}
 	
 	}
 	
@@ -182,12 +187,17 @@ header.site-header {
 
 @media screen and (max-width: 782px) {
 	.admin-bar {
-		header.site-header #top-bar-menu .menu-toggle-wrap a#menu-toggle {
+		.menu-toggle-wrap a#menu-toggle {
 			transform: translateY(45px);
+			&[aria-expanded="true"] {
+				transform: translateY(45px) translateX(-250px);
+			}
 		}
 		.off-canvas-content.is-open-right.has-transition-push.has-position-right {
-			header.site-header #top-bar-menu .menu-toggle-wrap a#menu-toggle {
-				transform: translateY(0);
+			.menu-toggle-wrap a#menu-toggle {
+				&[aria-expanded="true"] {
+					transform: translateY(0) translateX(-250px);
+				}
 			}
 		}
 		.off-canvas {
